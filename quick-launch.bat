@@ -15,10 +15,13 @@ start "DealerScope Server" /min cmd /k "npm run dev"
 REM Wait for server to start
 timeout /t 5 >nul
 
-REM Open browser
+REM Open both dashboard and landing page in browser
 start http://localhost:3004
+start http://localhost:3004/landing
 
-echo Server started and browser opened to http://localhost:3004
+echo Server started and browser opened
+echo - Dashboard: http://localhost:3004
+echo - Landing Page: http://localhost:3004/landing
 echo Check the "DealerScope Server" window for logs
 echo.
 

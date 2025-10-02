@@ -14,7 +14,8 @@
       "Bash(git add:*)",
       "Bash(if exist .git rmdir /s /q .git)",
       "Bash(git commit:*)",
-      "Bash(gh repo create:*)"
+      "Bash(gh repo create:*)",
+      "Bash(git push:*)"
     ],
     "deny": [],
     "ask": []
