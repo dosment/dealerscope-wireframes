@@ -53,9 +53,9 @@ export default function AdminVendorsPage() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'bg-green-100 text-green-800';
-      case 'inactive': return 'bg-tertiary text-primary';
-      default: return 'bg-tertiary text-primary';
+      case 'active': return 'bg-success-soft text-success';
+      case 'inactive': return 'bg-tertiary text-muted';
+      default: return 'bg-tertiary text-muted';
     }
   };
 
@@ -87,19 +87,19 @@ export default function AdminVendorsPage() {
             </div>
             <div className="bg-elevated border border-primary rounded-lg p-4">
               <p className="text-sm text-muted">Active Vendors</p>
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-2xl font-bold text-success">
                 {mockVendors.filter(v => v.status === 'active').length}
               </p>
             </div>
             <div className="bg-elevated border border-primary rounded-lg p-4">
               <p className="text-sm text-muted">Total Products</p>
-              <p className="text-2xl font-bold text-blue-600">
+              <p className="text-2xl font-bold text-info">
                 {mockVendors.reduce((sum, v) => sum + v.productsCount, 0)}
               </p>
             </div>
             <div className="bg-elevated border border-primary rounded-lg p-4">
               <p className="text-sm text-muted">Categories</p>
-              <p className="text-2xl font-bold text-purple-600">
+              <p className="text-2xl font-bold text-accent">
                 {categories.length}
               </p>
             </div>
@@ -114,14 +114,14 @@ export default function AdminVendorsPage() {
                   placeholder="Search by vendor name or category..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                 />
               </div>
               <div>
                 <select
                   value={filterCategory}
                   onChange={(e) => setFilterCategory(e.target.value)}
-                  className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                 >
                   <option value="all">All Categories</option>
                   {categories.map(cat => (
@@ -133,7 +133,7 @@ export default function AdminVendorsPage() {
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                 >
                   <option value="all">All Statuses</option>
                   <option value="active">Active</option>
@@ -177,7 +177,7 @@ export default function AdminVendorsPage() {
               />
             ) : (
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
+                <table className="min-w-full divide-y divide-primary">
                   <thead className="bg-secondary">
                     <tr>
                       <th className="px-6 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">
@@ -206,7 +206,7 @@ export default function AdminVendorsPage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-elevated divide-y divide-gray-200">
+                  <tbody className="bg-elevated divide-y divide-primary">
                     {filteredVendors.map((vendor) => (
                       <tr key={vendor.id} className="hover:bg-secondary">
                         <td className="px-6 py-4 whitespace-nowrap">
@@ -233,7 +233,7 @@ export default function AdminVendorsPage() {
                           {vendor.lastUpdated}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <a href={`/admin/vendors/${vendor.id}`} className="text-blue-600 hover:text-blue-900 mr-3">Manage</a>
+                          <a href={`/admin/vendors/${vendor.id}`} className="text-accent hover:text-hero transition-colors duration-200 mr-3">Manage</a>
                           <button className="text-secondary hover:text-hero">Delete</button>
                         </td>
                       </tr>
@@ -268,13 +268,13 @@ export default function AdminVendorsPage() {
                     <input
                       type="text"
                       placeholder="Enter vendor name"
-                      className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                     />
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-tertiary mb-2">Category</label>
-                    <select className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200">
                       <option value="">Select category</option>
                       {categories.map(cat => (
                         <option key={cat} value={cat}>{cat}</option>
@@ -287,7 +287,7 @@ export default function AdminVendorsPage() {
                     <input
                       type="text"
                       placeholder="vendor.com"
-                      className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                     />
                   </div>
 
@@ -296,7 +296,7 @@ export default function AdminVendorsPage() {
                     <textarea
                       rows={3}
                       placeholder="Brief description of the vendor and their products"
-                      className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                     />
                   </div>
                 </div>
