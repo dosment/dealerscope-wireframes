@@ -35,9 +35,9 @@ export default function AlertsPage() {
   };
 
   const alertTypeColors = {
-    opportunity: 'bg-warning-soft text-yellow-800 border-yellow-200',
-    competitor: 'bg-danger-soft text-red-800 border-red-200',
-    change: 'bg-info-soft text-blue-800 border-blue-200'
+    opportunity: 'bg-warning-soft text-warning border-warning-soft',
+    competitor: 'bg-danger-soft text-danger border-danger-soft',
+    change: 'bg-info-soft text-info border-info-soft'
   };
 
   const alertTypeLabels = {
@@ -102,8 +102,8 @@ export default function AlertsPage() {
 
               <div className="bg-elevated border border-primary rounded-lg p-4">
                 <div className="flex items-center">
-                  <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center">
-                    <svg className="w-4 h-4 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <div className="w-8 h-8 bg-accent/10 rounded-lg flex items-center justify-center">
+                    <svg className="w-4 h-4 text-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
                     </svg>
                   </div>
@@ -128,14 +128,14 @@ export default function AlertsPage() {
                 </div>
               </div>
 
-              <div className="divide-y divide-gray-200">
+              <div className="divide-y divide-primary">
                 {mockAdminAlerts.map((alert) => {
                   const iconConfig = {
                     subscription_new: { bg: 'bg-success-soft', text: 'text-success', icon: 'M12 6v6m0 0v6m0-6h6m-6 0H6' },
                     subscription_cancelled: { bg: 'bg-danger-soft', text: 'text-danger', icon: 'M6 18L18 6M6 6l12 12' },
                     subscription_upgraded: { bg: 'bg-info-soft', text: 'text-info', icon: 'M5 10l7-7m0 0l7 7m-7-7v18' },
                     dealership_added: { bg: 'bg-info-soft', text: 'text-info', icon: 'M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4' },
-                    user_added: { bg: 'bg-purple-100', text: 'text-purple-600', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' }
+                    user_added: { bg: 'bg-accent/10', text: 'text-accent', icon: 'M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z' }
                   };
 
                   const config = iconConfig[alert.type as keyof typeof iconConfig];
@@ -152,9 +152,9 @@ export default function AlertsPage() {
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center space-x-2 mb-1">
                             <span className={`inline-flex items-center px-2 py-1 text-xs font-medium rounded-md ${
-                              alert.priority === 'high' ? 'bg-danger-soft text-red-800' :
-                              alert.priority === 'medium' ? 'bg-warning-soft text-yellow-800' :
-                              'bg-gray-100 text-gray-800'
+                              alert.priority === 'high' ? 'bg-danger-soft text-danger' :
+                              alert.priority === 'medium' ? 'bg-warning-soft text-warning' :
+                              'bg-tertiary text-muted'
                             }`}>
                               {alert.priority.toUpperCase()}
                             </span>
@@ -260,8 +260,8 @@ export default function AlertsPage() {
                     onClick={() => setFilter(type)}
                     className={`px-3 py-1 text-sm rounded-md transition-colors ${
                       filter === type
-                        ? 'bg-info-soft text-blue-800'
-                        : 'bg-tertiary text-tertiary hover:bg-gray-200'
+                        ? 'bg-accent/10 text-accent'
+                        : 'bg-tertiary text-muted hover:bg-secondary'
                     }`}
                   >
                     {type === 'all' ? 'All Alerts' : alertTypeLabels[type as keyof typeof alertTypeLabels]}
@@ -287,7 +287,7 @@ export default function AlertsPage() {
               </div>
             </div>
 
-            <div className="divide-y divide-gray-200">
+            <div className="divide-y divide-primary">
               {mockRecentChanges.map((change) => {
                 const alertType = getAlertType(change);
 
