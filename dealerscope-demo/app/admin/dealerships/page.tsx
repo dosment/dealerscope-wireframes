@@ -94,7 +94,7 @@ export default function AdminDealershipsPage() {
               )}
               <button
                 onClick={() => setShowAddModal(true)}
-                className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors"
+                className="action-primary px-6 h-11 text-sm font-semibold rounded-xl tracking-wide transition-all duration-200"
               >
                 Add Dealership
               </button>

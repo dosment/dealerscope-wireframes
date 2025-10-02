@@ -5,6 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Layout from '@/components/ui/Layout';
 import Button from '@/components/ui/Button';
 import StatusBadge from '@/components/ui/StatusBadge';
+import { ChevronLeft } from 'lucide-react';
 
 export default function DealershipDetailPage() {
   const params = useParams();
@@ -61,11 +62,9 @@ export default function DealershipDetailPage() {
           {/* Back Button */}
           <button
             onClick={() => router.push('/dealerships')}
-            className="flex items-center text-sm text-secondary hover:text-primary"
+            className="flex items-center text-sm text-secondary hover:text-primary transition-colors duration-200"
           >
-            <svg className="w-4 h-4 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            <ChevronLeft className="w-4 h-4 mr-1" strokeWidth={2} />
             Back to My Dealers
           </button>
 

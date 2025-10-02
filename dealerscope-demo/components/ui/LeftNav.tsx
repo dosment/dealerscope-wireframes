@@ -82,6 +82,12 @@ const LeftNav: React.FC<LeftNavProps> = ({
       href: '/admin'
     },
     {
+      id: 'alerts',
+      label: 'Alerts',
+      icon: <Bell className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/admin/alerts'
+    },
+    {
       id: 'users',
       label: 'Users',
       icon: <Users className="w-5 h-5" strokeWidth={1.5} />,
@@ -98,12 +104,6 @@ const LeftNav: React.FC<LeftNavProps> = ({
       label: 'Vendors',
       icon: <Briefcase className="w-5 h-5" strokeWidth={1.5} />,
       href: '/admin/vendors'
-    },
-    {
-      id: 'alerts',
-      label: 'Alerts',
-      icon: <Bell className="w-5 h-5" strokeWidth={1.5} />,
-      href: '/admin/alerts'
     },
     {
       id: 'billing',

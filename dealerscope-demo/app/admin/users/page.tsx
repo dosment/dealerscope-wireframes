@@ -93,7 +93,7 @@ export default function AdminUsersPage() {
               <h1 className="text-2xl font-semibold text-hero">User Management</h1>
               <p className="text-secondary">Manage user accounts and access</p>
             </div>
-            <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+            <button className="action-primary px-6 h-11 text-sm font-semibold rounded-xl tracking-wide transition-all duration-200">
               Add New User
             </button>
           </div>
@@ -264,8 +264,8 @@ export default function AdminUsersPage() {
                           {user.lastLogin}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <button className="text-blue-600 hover:text-blue-900 mr-3">Edit</button>
-                          <button className="text-red-600 hover:text-red-900">Delete</button>
+                          <button className="text-accent hover:text-hero transition-colors duration-200 mr-3">Edit</button>
+                          <button className="text-danger-600 hover:text-danger-700 transition-colors duration-200">Delete</button>
                         </td>
                       </tr>
                     ))}

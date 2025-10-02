@@ -93,7 +93,7 @@ export default function AdminBillingPage() {
                   <h1 className="text-2xl font-semibold text-hero">Billing & Revenue</h1>
                   <p className="text-secondary">Manage subscriptions and track revenue</p>
                 </div>
-                <button className="px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors">
+                <button className="action-primary px-6 h-11 text-sm font-semibold rounded-xl tracking-wide transition-all duration-200">
                   Export Report
                 </button>
               </div>
@@ -181,20 +181,20 @@ export default function AdminBillingPage() {
               <nav className="-mb-px flex space-x-8">
                 <button
                   onClick={() => setActiveTab('subscriptions')}
-                  className={`pb-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                  className={`pb-4 px-1 border-b-2 font-medium text-sm transition-all duration-200 ${
                     activeTab === 'subscriptions'
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-muted hover:text-tertiary hover:border-secondary'
+                      ? 'border-accent text-hero'
+                      : 'border-transparent text-muted hover:text-primary hover:border-hover'
                   }`}
                 >
                   Subscriptions
                 </button>
                 <button
                   onClick={() => setActiveTab('transactions')}
-                  className={`pb-4 px-1 border-b-2 font-medium text-sm transition-colors ${
+                  className={`pb-4 px-1 border-b-2 font-medium text-sm transition-all duration-200 ${
                     activeTab === 'transactions'
-                      ? 'border-blue-500 text-blue-600'
-                      : 'border-transparent text-muted hover:text-tertiary hover:border-secondary'
+                      ? 'border-accent text-hero'
+                      : 'border-transparent text-muted hover:text-primary hover:border-hover'
                   }`}
                 >
                   Transaction History
@@ -295,11 +295,11 @@ export default function AdminBillingPage() {
                             {sub.customerSince}
                           </td>
                           <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                            <button className="text-blue-600 hover:text-blue-900 mr-3">View</button>
+                            <button className="text-accent hover:text-hero transition-colors duration-200 mr-3">View</button>
                             {sub.status === 'past_due' && (
-                              <button className="text-orange-600 hover:text-orange-900 mr-3">Retry</button>
+                              <button className="text-warning hover:text-warning/80 transition-colors duration-200 mr-3">Retry</button>
                             )}
-                            <button className="text-red-600 hover:text-red-900">Cancel</button>
+                            <button className="text-danger-600 hover:text-danger-700 transition-colors duration-200">Cancel</button>
                           </td>
                         </tr>
                       ))}
@@ -358,9 +358,9 @@ export default function AdminBillingPage() {
                           {txn.date}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <button className="text-blue-600 hover:text-blue-900 mr-3">View Invoice</button>
+                          <button className="text-accent hover:text-hero transition-colors duration-200 mr-3">View Invoice</button>
                           {txn.status === 'succeeded' && (
-                            <button className="text-secondary hover:text-hero">Refund</button>
+                            <button className="text-secondary hover:text-hero transition-colors duration-200">Refund</button>
                           )}
                         </td>
                       </tr>
