@@ -262,8 +262,13 @@ export default function AdminDealershipsPage() {
                           {dealership.lastScanned}
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                          <button className="text-blue-600 hover:text-blue-900 mr-3">Edit</button>
-                          <button className="text-red-600 hover:text-red-900">Delete</button>
+                          <button
+                            onClick={() => window.location.href = `/admin/dealerships/${dealership.id}`}
+                            className="text-accent hover:text-hero transition-colors duration-200 mr-3"
+                          >
+                            Edit
+                          </button>
+                          <button className="text-danger-600 hover:text-danger-700 transition-colors duration-200">Delete</button>
                         </td>
                       </tr>
                     ))}
