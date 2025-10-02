@@ -41,7 +41,7 @@ export default function SettingsPage() {
                   <button
                     onClick={() => setEmailEnabled(!emailEnabled)}
                     className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                      emailEnabled ? 'bg-blue-600' : 'bg-gray-200'
+                      emailEnabled ? 'bg-accent' : 'bg-tertiary'
                     }`}
                   >
                     <span
@@ -61,7 +61,7 @@ export default function SettingsPage() {
                       <select
                         value={frequency}
                         onChange={(e) => setFrequency(e.target.value)}
-                        className="block w-full border border-secondary rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                       >
                         <option value="daily">Daily</option>
                         <option value="weekly">Weekly</option>
@@ -76,7 +76,7 @@ export default function SettingsPage() {
                       <select
                         value={timeOfDay}
                         onChange={(e) => setTimeOfDay(e.target.value)}
-                        className="block w-full border border-secondary rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                       >
                         <option value="07:00">7:00 AM</option>
                         <option value="08:00">8:00 AM</option>
@@ -111,7 +111,7 @@ export default function SettingsPage() {
                         type="checkbox"
                         checked={categories.includes(category.id)}
                         onChange={() => handleCategoryChange(category.id)}
-                        className="mt-1 h-4 w-4 text-blue-600 focus:ring-blue-500 border-secondary rounded"
+                        className="mt-1 h-4 w-4 text-accent focus:ring-accent border-secondary rounded"
                       />
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-hero">{category.label}</div>
@@ -132,7 +132,7 @@ export default function SettingsPage() {
                     <label className="block text-sm font-medium text-tertiary mb-2">
                       CRM Platform
                     </label>
-                    <select className="block w-full border border-secondary rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500">
+                    <select className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200">
                       <option value="">Select your CRM</option>
                       <option value="salesforce">Salesforce</option>
                       <option value="hubspot">HubSpot</option>
@@ -184,7 +184,7 @@ export default function SettingsPage() {
                     <div className="leading-relaxed">Here's your daily summary of dealership changes:</div>
 
                     <div className="bg-elevated rounded p-3">
-                      <div className="font-medium text-red-600 mb-2">New Opportunities (3)</div>
+                      <div className="font-medium text-danger mb-2">New Opportunities (3)</div>
                       <div className="space-y-1">
                         <div>• Miller Honda - Chat tool removed</div>
                         <div>• City Toyota - No chat tool detected</div>
@@ -193,7 +193,7 @@ export default function SettingsPage() {
                     </div>
 
                     <div className="bg-elevated rounded p-3">
-                      <div className="font-medium text-blue-600 mb-2">Recent Changes (5)</div>
+                      <div className="font-medium text-info mb-2">Recent Changes (5)</div>
                       <div className="space-y-1">
                         <div>• Metro Honda - Switched to Intercom</div>
                         <div>• West Ford - Updated chat system</div>
