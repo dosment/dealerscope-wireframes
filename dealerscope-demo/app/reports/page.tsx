@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import { BarChart3 } from 'lucide-react';
 import Layout from '@/components/ui/Layout';
 import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
@@ -22,21 +23,21 @@ export default function ReportsPage() {
 
   return (
     <Layout userType="sales_rep">
-      <div className="h-full p-6">
+      <div className="h-full px-6 sm:px-8 lg:px-12 py-8">
         <div className="max-w-screen-2xl mx-auto">
           {isLoading ? (
             <LoadingState message="Loading reports..." />
           ) : (
             <>
-              <div className="mb-8">
-                <h1 className="text-2xl font-semibold text-hero">Prospecting</h1>
-                <p className="text-secondary">Find dealerships and opportunities in specific regions</p>
+              <div className="mb-10 space-y-2">
+                <h1 className="text-3xl sm:text-4xl font-semibold text-hero tracking-tight">Prospecting</h1>
+                <p className="text-base text-secondary">Find dealerships and opportunities in specific regions</p>
               </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Report Builder */}
-            <div className="bg-elevated border border-primary rounded-lg p-6">
-              <h2 className="text-lg font-medium text-hero mb-6">Build Report</h2>
+            <div className="bg-elevated border border-primary rounded-xl p-8">
+              <h2 className="text-xl font-semibold text-hero mb-8 tracking-tight">Build Report</h2>
 
               <div className="space-y-6">
                 <div>
@@ -53,7 +54,7 @@ export default function ReportsPage() {
                     <select
                       value={radius}
                       onChange={(e) => setRadius(e.target.value)}
-                      className="block w-full border border-secondary rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-elevated text-primary font-medium transition-all duration-200"
                     >
                       <option value="25">25 miles</option>
                       <option value="50">50 miles</option>
@@ -70,7 +71,7 @@ export default function ReportsPage() {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="block w-full border border-secondary rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-elevated text-primary font-medium transition-all duration-200"
                   >
                     <option value="all">All Product Categories</option>
                     <option value="chat">Chat Tools</option>
@@ -117,16 +118,14 @@ export default function ReportsPage() {
             </div>
 
             {/* Results Preview */}
-            <div className="bg-elevated border border-primary rounded-lg p-6">
-              <h2 className="text-lg font-medium text-hero mb-6">Report Results</h2>
+            <div className="bg-elevated border border-primary rounded-xl p-8">
+              <h2 className="text-xl font-semibold text-hero mb-8 tracking-tight">Report Results</h2>
 
               <div className="text-center py-12">
-                <div className="w-16 h-16 mx-auto mb-4 bg-tertiary rounded-lg flex items-center justify-center">
-                  <svg className="w-8 h-8 text-disabled" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
-                  </svg>
+                <div className="w-20 h-20 mx-auto mb-6 bg-tertiary/30 rounded-2xl flex items-center justify-center">
+                  <BarChart3 className="w-10 h-10 text-muted" strokeWidth={1.5} />
                 </div>
-                <h3 className="text-lg font-medium text-hero mb-2">Ready to Generate</h3>
+                <h3 className="text-xl font-semibold text-hero mb-3 tracking-tight">Ready to Generate</h3>
                 <p className="text-muted mb-6">
                   Enter search criteria and click "Generate Report" to see results
                 </p>
@@ -146,31 +145,31 @@ export default function ReportsPage() {
           </div>
 
           {/* Saved Reports */}
-          <div className="mt-8 bg-elevated border border-primary rounded-lg p-6">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-lg font-medium text-hero">Saved Reports</h2>
+          <div className="mt-8 bg-elevated border border-primary rounded-xl p-8">
+            <div className="flex items-center justify-between mb-8">
+              <h2 className="text-xl font-semibold text-hero tracking-tight">Saved Reports</h2>
               <Button variant="secondary" size="sm">
                 Manage Saved Reports
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="border border-primary rounded-lg p-4 hover:bg-secondary cursor-pointer">
-                <h3 className="font-medium text-hero">Texas Market Analysis</h3>
-                <p className="text-sm text-muted mt-1">All chat tools within 100 miles of Austin</p>
-                <p className="text-xs text-disabled mt-2">Last run: 2 days ago</p>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-5">
+              <div className="border border-primary rounded-xl p-6 hover:bg-secondary/30 hover:border-hover cursor-pointer transition-all duration-200">
+                <h3 className="font-semibold text-hero text-base">Texas Market Analysis</h3>
+                <p className="text-sm text-muted mt-2">All chat tools within 100 miles of Austin</p>
+                <p className="text-xs text-disabled mt-3">Last run: 2 days ago</p>
               </div>
 
-              <div className="border border-primary rounded-lg p-4 hover:bg-secondary cursor-pointer">
-                <h3 className="font-medium text-hero">California Opportunities</h3>
-                <p className="text-sm text-muted mt-1">CRM opportunities in LA metro area</p>
-                <p className="text-xs text-disabled mt-2">Last run: 1 week ago</p>
+              <div className="border border-primary rounded-xl p-6 hover:bg-secondary/30 hover:border-hover cursor-pointer transition-all duration-200">
+                <h3 className="font-semibold text-hero text-base">California Opportunities</h3>
+                <p className="text-sm text-muted mt-2">CRM opportunities in LA metro area</p>
+                <p className="text-xs text-disabled mt-3">Last run: 1 week ago</p>
               </div>
 
-              <div className="border border-primary rounded-lg p-4 hover:bg-secondary cursor-pointer">
-                <h3 className="font-medium text-hero">Competitor Analysis</h3>
-                <p className="text-sm text-muted mt-1">Dealers using competitor solutions</p>
-                <p className="text-xs text-disabled mt-2">Last run: 3 days ago</p>
+              <div className="border border-primary rounded-xl p-6 hover:bg-secondary/30 hover:border-hover cursor-pointer transition-all duration-200">
+                <h3 className="font-semibold text-hero text-base">Competitor Analysis</h3>
+                <p className="text-sm text-muted mt-2">Dealers using competitor solutions</p>
+                <p className="text-xs text-disabled mt-3">Last run: 3 days ago</p>
               </div>
             </div>
           </div>
