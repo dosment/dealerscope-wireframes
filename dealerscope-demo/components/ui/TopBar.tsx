@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { ChevronRight, ArrowLeftRight, Bell } from 'lucide-react';
+import { ChevronRight, ChevronDown, Bell } from 'lucide-react';
 import Button from './Button';
 import RecentChanges from '../dashboard/RecentChanges';
 import { User } from '@/types';
@@ -36,6 +36,7 @@ const TopBar: React.FC<TopBarProps> = ({
   recentChanges = []
 }) => {
   const [showNotifications, setShowNotifications] = useState(false);
+  const [showViewDropdown, setShowViewDropdown] = useState(false);
 
   return (
     <div className="bg-secondary border-b border-primary h-18 px-8 flex items-center justify-between">
@@ -52,16 +53,77 @@ const TopBar: React.FC<TopBarProps> = ({
 
       {/* Right section - Actions and user */}
       <div className="flex items-center space-x-5">
-        {/* View Switcher */}
+        {/* View Switcher Dropdown */}
         {onViewSwitch && (
-          <button
-            onClick={onViewSwitch}
-            className="flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-accent text-primary border border-primary hover:bg-tertiary hover:shadow-sm transition-all duration-200"
-            title={userType === 'admin' ? 'Switch to Sales Rep View' : 'Switch to Admin View'}
-          >
-            <ArrowLeftRight className="w-4 h-4" strokeWidth={2} />
-            <span>{userType === 'admin' ? 'Sales Rep View' : 'Admin View'}</span>
-          </button>
+          <div className="relative">
+            <button
+              onClick={() => setShowViewDropdown(!showViewDropdown)}
+              className="flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-accent text-primary border border-primary hover:bg-tertiary hover:shadow-sm transition-all duration-200"
+            >
+              <span>
+                {userType === 'admin' ? 'Admin View' :
+                 userType === 'automotive_group' ? 'Automotive Group View' :
+                 'Sales Rep View'}
+              </span>
+              <ChevronDown className="w-4 h-4" strokeWidth={2} />
+            </button>
+
+            {/* Dropdown Menu */}
+            {showViewDropdown && (
+              <>
+                {/* Backdrop to close dropdown */}
+                <div
+                  className="fixed inset-0 z-10"
+                  onClick={() => setShowViewDropdown(false)}
+                />
+
+                {/* Dropdown Panel */}
+                <div className="absolute right-0 mt-2 w-56 z-20 bg-elevated border border-primary rounded-xl shadow-lg overflow-hidden">
+                  <div className="py-2">
+                    <button
+                      onClick={() => {
+                        window.location.href = '/';
+                        setShowViewDropdown(false);
+                      }}
+                      className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors ${
+                        userType === 'sales_rep'
+                          ? 'bg-accent text-hero'
+                          : 'text-secondary hover:bg-accent/50 hover:text-primary'
+                      }`}
+                    >
+                      Sales Rep View
+                    </button>
+                    <button
+                      onClick={() => {
+                        window.location.href = '/automotive-group';
+                        setShowViewDropdown(false);
+                      }}
+                      className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors ${
+                        userType === 'automotive_group'
+                          ? 'bg-accent text-hero'
+                          : 'text-secondary hover:bg-accent/50 hover:text-primary'
+                      }`}
+                    >
+                      Automotive Group View
+                    </button>
+                    <button
+                      onClick={() => {
+                        window.location.href = '/admin';
+                        setShowViewDropdown(false);
+                      }}
+                      className={`w-full text-left px-4 py-3 text-sm font-medium transition-colors ${
+                        userType === 'admin'
+                          ? 'bg-accent text-hero'
+                          : 'text-secondary hover:bg-accent/50 hover:text-primary'
+                      }`}
+                    >
+                      Admin View
+                    </button>
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
         )}
 
         {/* Notifications */}
@@ -73,7 +135,7 @@ const TopBar: React.FC<TopBarProps> = ({
             >
               <Bell className="w-5 h-5" strokeWidth={1.5} />
               {notifications > 0 && (
-                <span className="absolute -top-1 -right-1 bg-danger-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold tabular-nums">
+                <span className="absolute -top-1 -right-1 bg-red-600 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold tabular-nums shadow-lg">
                   {notifications > 9 ? '9+' : notifications}
                 </span>
               )}
