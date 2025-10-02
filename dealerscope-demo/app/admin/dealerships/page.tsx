@@ -53,11 +53,11 @@ export default function AdminDealershipsPage() {
 
   const getStatusColor = (status: string) => {
     switch (status) {
-      case 'active': return 'bg-green-100 text-green-800';
-      case 'inactive': return 'bg-tertiary text-primary';
-      case 'duplicate': return 'bg-yellow-100 text-yellow-800';
-      case 'pending_merge': return 'bg-blue-100 text-blue-800';
-      default: return 'bg-tertiary text-primary';
+      case 'active': return 'bg-success-soft text-success';
+      case 'inactive': return 'bg-tertiary text-muted';
+      case 'duplicate': return 'bg-warning-soft text-warning';
+      case 'pending_merge': return 'bg-info-soft text-info';
+      default: return 'bg-tertiary text-muted';
     }
   };
 
@@ -85,12 +85,12 @@ export default function AdminDealershipsPage() {
             </div>
             <div className="flex space-x-3">
               {selectedDealerships.length >= 2 && (
-                <button
+                <Button
+                  variant="secondary"
                   onClick={handleMergeDealerships}
-                  className="px-4 py-2 bg-purple-600 text-white rounded-md hover:bg-purple-700 transition-colors"
                 >
                   Merge Selected ({selectedDealerships.length})
-                </button>
+                </Button>
               )}
               <button
                 onClick={() => setShowAddModal(true)}
@@ -109,13 +109,13 @@ export default function AdminDealershipsPage() {
             </div>
             <div className="bg-elevated border border-primary rounded-lg p-4">
               <p className="text-sm text-muted">Active</p>
-              <p className="text-2xl font-bold text-green-600">
+              <p className="text-2xl font-bold text-success">
                 {mockDealerships.filter(d => d.status === 'active').length}
               </p>
             </div>
             <div className="bg-elevated border border-primary rounded-lg p-4">
               <p className="text-sm text-muted">Duplicates</p>
-              <p className="text-2xl font-bold text-yellow-600">
+              <p className="text-2xl font-bold text-warning">
                 {mockDealerships.filter(d => d.status === 'duplicate').length}
               </p>
             </div>
@@ -136,14 +136,14 @@ export default function AdminDealershipsPage() {
                   placeholder="Search by name, address, city, or website..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                 />
               </div>
               <div>
                 <select
                   value={filterStatus}
                   onChange={(e) => setFilterStatus(e.target.value)}
-                  className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
+                  className="w-full px-4 py-3 border border-primary rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                 >
                   <option value="all">All Statuses</option>
                   <option value="active">Active</option>
@@ -188,7 +188,7 @@ export default function AdminDealershipsPage() {
               />
             ) : (
               <div className="overflow-x-auto">
-                <table className="min-w-full divide-y divide-gray-200">
+                <table className="min-w-full divide-y divide-primary">
                   <thead className="bg-secondary">
                     <tr>
                       <th className="px-6 py-3 text-left">
@@ -227,7 +227,7 @@ export default function AdminDealershipsPage() {
                       </th>
                     </tr>
                   </thead>
-                  <tbody className="bg-elevated divide-y divide-gray-200">
+                  <tbody className="bg-elevated divide-y divide-primary">
                     {filteredDealerships.map((dealership) => (
                       <tr key={dealership.id} className="hover:bg-secondary">
                         <td className="px-6 py-4">
@@ -240,7 +240,7 @@ export default function AdminDealershipsPage() {
                         </td>
                         <td className="px-6 py-4 whitespace-nowrap">
                           <div className="text-sm font-medium text-hero">{dealership.name}</div>
-                          <a href={`https://${dealership.website}`} target="_blank" rel="noopener noreferrer" className="text-sm text-blue-600 hover:text-blue-800">
+                          <a href={`https://${dealership.website}`} target="_blank" rel="noopener noreferrer" className="text-sm text-accent hover:text-hero transition-colors duration-200">
                             {dealership.website}
                           </a>
                         </td>
@@ -352,7 +352,7 @@ export default function AdminDealershipsPage() {
                           <div className="font-medium text-hero">{dealership.name}</div>
                           <div className="text-sm text-muted">{dealership.address}</div>
                           <div className="text-sm text-muted">{dealership.city}, {dealership.state}</div>
-                          <div className="text-sm text-blue-600">{dealership.website}</div>
+                          <div className="text-sm text-accent">{dealership.website}</div>
                           <div className="text-xs text-disabled mt-1">
                             {dealership.productsDetected} products detected • Last scanned: {dealership.lastScanned}
                           </div>
