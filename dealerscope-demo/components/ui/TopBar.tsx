@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { ChevronRight, ArrowLeftRight, Bell } from 'lucide-react';
 import Button from './Button';
 import RecentChanges from '../dashboard/RecentChanges';
 import { User } from '@/types';
@@ -37,28 +38,24 @@ const TopBar: React.FC<TopBarProps> = ({
   const [showNotifications, setShowNotifications] = useState(false);
 
   return (
-    <div className="bg-secondary border-b border-primary h-16 px-6 flex items-center justify-between">
+    <div className="bg-secondary border-b border-primary h-18 px-8 flex items-center justify-between">
       {/* Left section - Context */}
-      <div className="flex items-center space-x-2 text-sm">
-        <span className="font-semibold text-primary">DealerScope</span>
-        <svg className="w-3 h-3 text-muted" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-        </svg>
-        <span className="text-muted">{userType === 'admin' ? 'Admin Operations' : 'Sales Performance'}</span>
+      <div className="flex items-center space-x-2.5 text-sm">
+        <span className="font-bold text-primary tracking-wide">DealerScope</span>
+        <ChevronRight className="w-3.5 h-3.5 text-muted" strokeWidth={2} />
+        <span className="text-muted font-medium">{userType === 'admin' ? 'Admin Operations' : 'Sales Performance'}</span>
       </div>
 
       {/* Right section - Actions and user */}
-      <div className="flex items-center space-x-4">
+      <div className="flex items-center space-x-5">
         {/* View Switcher */}
         {onViewSwitch && (
           <button
             onClick={onViewSwitch}
-            className="flex items-center space-x-2 px-3 py-2 rounded-md text-sm font-medium bg-accent text-primary border border-primary hover:bg-tertiary transition-colors"
+            className="flex items-center space-x-2 px-4 py-2.5 rounded-xl text-sm font-semibold bg-accent text-primary border border-primary hover:bg-tertiary hover:shadow-sm transition-all duration-200"
             title={userType === 'admin' ? 'Switch to Sales Rep View' : 'Switch to Admin View'}
           >
-            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" />
-            </svg>
+            <ArrowLeftRight className="w-4 h-4" strokeWidth={2} />
             <span>{userType === 'admin' ? 'Sales Rep View' : 'Admin View'}</span>
           </button>
         )}
@@ -68,13 +65,11 @@ const TopBar: React.FC<TopBarProps> = ({
           <div className="relative">
             <button
               onClick={() => setShowNotifications(!showNotifications)}
-              className="relative p-2 rounded-md text-muted hover:bg-accent transition-colors"
+              className="relative p-2.5 rounded-xl text-muted hover:bg-accent hover:text-primary transition-all duration-200"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-              </svg>
+              <Bell className="w-5 h-5" strokeWidth={1.5} />
               {notifications > 0 && (
-                <span className="absolute -top-1 -right-1 bg-danger-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
+                <span className="absolute -top-1 -right-1 bg-danger-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold tabular-nums">
                   {notifications > 9 ? '9+' : notifications}
                 </span>
               )}
@@ -90,7 +85,7 @@ const TopBar: React.FC<TopBarProps> = ({
                 />
 
                 {/* Notification Panel */}
-                <div className="absolute right-0 mt-2 w-96 z-20 bg-elevated border border-primary rounded-lg shadow-lg overflow-hidden max-h-[calc(100vh-100px)]">
+                <div className="absolute right-0 mt-3 w-96 z-20 bg-elevated border border-primary rounded-xl shadow-lg overflow-hidden max-h-[calc(100vh-100px)]">
                   <RecentChanges changes={recentChanges} />
                 </div>
               </>
@@ -114,18 +109,18 @@ const TopBar: React.FC<TopBarProps> = ({
         {/* User menu */}
         <a
           href="/profile"
-          className="flex items-center space-x-3 rounded-md px-3 py-2 transition-colors hover:bg-accent"
+          className="flex items-center space-x-3 rounded-xl px-4 py-2 transition-all duration-200 hover:bg-accent/50"
         >
           <div className="text-right">
-            <p className="text-sm font-medium text-primary">
+            <p className="text-sm font-semibold text-primary">
               {user?.name || 'User'}
             </p>
-            <p className="text-xs text-muted">
+            <p className="text-xs text-muted font-medium">
               {user?.company || 'Company'}
             </p>
           </div>
-          <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center">
-            <span className="text-primary font-medium text-sm">
+          <div className="w-10 h-10 rounded-full bg-accent border-2 border-primary flex items-center justify-center">
+            <span className="text-primary font-bold text-sm">
               {user?.name?.charAt(0).toUpperCase() || 'U'}
             </span>
           </div>
