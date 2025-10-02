@@ -54,7 +54,7 @@ export default function ReportsPage() {
                     <select
                       value={radius}
                       onChange={(e) => setRadius(e.target.value)}
-                      className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-elevated text-primary font-medium transition-all duration-200"
+                      className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                     >
                       <option value="25">25 miles</option>
                       <option value="50">50 miles</option>
@@ -71,7 +71,7 @@ export default function ReportsPage() {
                   <select
                     value={selectedCategory}
                     onChange={(e) => setSelectedCategory(e.target.value)}
-                    className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500 bg-elevated text-primary font-medium transition-all duration-200"
+                    className="block w-full border border-primary rounded-xl px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent bg-elevated text-primary font-medium transition-all duration-200"
                   >
                     <option value="all">All Product Categories</option>
                     <option value="chat">Chat Tools</option>
