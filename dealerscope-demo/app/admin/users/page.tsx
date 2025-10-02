@@ -17,13 +17,13 @@ interface User {
 }
 
 const mockUsers: User[] = [
-  { id: '1', name: 'John Doe', email: 'john@example.com', plan: 'Enterprise', status: 'active', lastLogin: '2 hours ago', dealerships: 45 },
-  { id: '2', name: 'Sarah Miller', email: 'sarah@example.com', plan: 'Professional', status: 'active', lastLogin: '1 day ago', dealerships: 28 },
-  { id: '3', name: 'Mike Johnson', email: 'mike@example.com', plan: 'Starter', status: 'active', lastLogin: '3 hours ago', dealerships: 12 },
-  { id: '4', name: 'Emily Davis', email: 'emily@example.com', plan: 'Professional', status: 'active', lastLogin: '5 hours ago', dealerships: 32 },
-  { id: '5', name: 'Robert Wilson', email: 'robert@example.com', plan: 'Enterprise', status: 'inactive', lastLogin: '2 weeks ago', dealerships: 50 },
-  { id: '6', name: 'Lisa Anderson', email: 'lisa@example.com', plan: 'Starter', status: 'active', lastLogin: '1 hour ago', dealerships: 8 },
-  { id: '7', name: 'David Brown', email: 'david@example.com', plan: 'Professional', status: 'suspended', lastLogin: '1 month ago', dealerships: 22 },
+  { id: '1', name: 'John Doe', email: 'john@example.com', plan: 'Tier 3', status: 'active', lastLogin: '2 hours ago', dealerships: 45 },
+  { id: '2', name: 'Sarah Miller', email: 'sarah@example.com', plan: 'Tier 2', status: 'active', lastLogin: '1 day ago', dealerships: 28 },
+  { id: '3', name: 'Mike Johnson', email: 'mike@example.com', plan: 'Tier 1', status: 'active', lastLogin: '3 hours ago', dealerships: 12 },
+  { id: '4', name: 'Emily Davis', email: 'emily@example.com', plan: 'Tier 2', status: 'active', lastLogin: '5 hours ago', dealerships: 32 },
+  { id: '5', name: 'Robert Wilson', email: 'robert@example.com', plan: 'Tier 3', status: 'inactive', lastLogin: '2 weeks ago', dealerships: 50 },
+  { id: '6', name: 'Lisa Anderson', email: 'lisa@example.com', plan: 'Tier 1', status: 'active', lastLogin: '1 hour ago', dealerships: 8 },
+  { id: '7', name: 'David Brown', email: 'david@example.com', plan: 'Tier 2', status: 'suspended', lastLogin: '1 month ago', dealerships: 22 },
 ];
 
 export default function AdminUsersPage() {
@@ -129,9 +129,9 @@ export default function AdminUsersPage() {
                   className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                 >
                   <option value="all">All Plans</option>
-                  <option value="Starter">Starter</option>
-                  <option value="Professional">Professional</option>
-                  <option value="Enterprise">Enterprise</option>
+                  <option value="Tier 1">Tier 1</option>
+                  <option value="Tier 2">Tier 2</option>
+                  <option value="Tier 3">Tier 3</option>
                 </select>
               </div>
             </div>

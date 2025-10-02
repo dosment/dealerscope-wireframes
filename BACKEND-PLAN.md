@@ -20,6 +20,11 @@ CREATE TABLE users (
   role TEXT NOT NULL CHECK (role IN ('sales_rep', 'admin')),
   company TEXT,
   territory TEXT[], -- Array of state codes or regions
+
+  -- Subscription tier: Tier 1 (Basic), Tier 2 (Pro), Tier 3 (Enterprise)
+  subscription_tier INTEGER DEFAULT 1 CHECK (subscription_tier IN (1, 2, 3)),
+  subscription_status TEXT DEFAULT 'active' CHECK (subscription_status IN ('active', 'inactive', 'suspended', 'trial')),
+
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
   last_login TIMESTAMPTZ,
@@ -590,6 +595,40 @@ PUT    /api/preferences/digest             - Update email digest settings
 - **PostGIS Extension** enabled for:
   - Geographic queries (ZIP + radius search)
   - Territory-based filtering
+
+---
+
+## 💳 Subscription Tier Limits
+
+### **Tier 1 (Basic)**
+- Max dealerships: 25
+- Scan frequency: Weekly
+- Alerts: Email only
+- Reports: 5 saved reports
+- Users: 1 user
+- Support: Email support
+
+### **Tier 2 (Pro)**
+- Max dealerships: 100
+- Scan frequency: Daily
+- Alerts: Email + In-app
+- Reports: 25 saved reports
+- Users: 5 users
+- Support: Priority email + chat
+
+### **Tier 3 (Enterprise)**
+- Max dealerships: Unlimited
+- Scan frequency: Real-time
+- Alerts: Email + In-app + SMS
+- Reports: Unlimited
+- Users: Unlimited
+- Support: Dedicated account manager + phone
+
+**Implementation:**
+- Tier limits enforced at API level
+- `subscription_tier` field in users table (1, 2, or 3)
+- Upgrade prompts shown when limits reached
+- Admin can override limits manually
 
 ---
 
