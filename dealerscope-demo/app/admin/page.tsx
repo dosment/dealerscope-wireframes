@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import Layout from '@/components/ui/Layout';
 import LoadingState from '@/components/ui/LoadingState';
-import { UserPlus, FileText, Mail, Settings } from 'lucide-react';
+import { UserPlus, Building2, AlertCircle, Package } from 'lucide-react';
 
 export default function AdminPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -58,17 +58,17 @@ export default function AdminPage() {
                         <UserPlus className="w-5 h-5 mr-2" strokeWidth={1.5} />
                         Add User
                       </button>
+                      <button className="flex items-center justify-center px-4 py-3 bg-accent/10 text-accent rounded-xl hover:bg-accent/20 transition-all duration-200">
+                        <Building2 className="w-5 h-5 mr-2" strokeWidth={1.5} />
+                        Add Dealership
+                      </button>
+                      <button className="flex items-center justify-center px-4 py-3 bg-danger-soft text-danger-600 rounded-xl hover:bg-danger-soft/70 transition-all duration-200">
+                        <AlertCircle className="w-5 h-5 mr-2" strokeWidth={1.5} />
+                        Failed Payments
+                      </button>
                       <button className="flex items-center justify-center px-4 py-3 bg-success-soft text-success rounded-xl hover:bg-success-soft/70 transition-all duration-200">
-                        <FileText className="w-5 h-5 mr-2" strokeWidth={1.5} />
-                        View Reports
-                      </button>
-                      <button className="flex items-center justify-center px-4 py-3 bg-warning-soft text-warning rounded-xl hover:bg-warning-soft/70 transition-all duration-200">
-                        <Mail className="w-5 h-5 mr-2" strokeWidth={1.5} />
-                        Send Email
-                      </button>
-                      <button className="flex items-center justify-center px-4 py-3 bg-elevated border border-primary text-secondary rounded-xl hover:border-hover hover:text-primary transition-all duration-200">
-                        <Settings className="w-5 h-5 mr-2" strokeWidth={1.5} />
-                        Settings
+                        <Package className="w-5 h-5 mr-2" strokeWidth={1.5} />
+                        Manage Vendors
                       </button>
                     </div>
                   </div>
