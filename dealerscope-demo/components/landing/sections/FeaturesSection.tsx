@@ -46,7 +46,7 @@ export default function FeaturesSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Everything You Need to{' '}
-            <span className="text-accent">Dominate Your Market</span>
+            <span className="text-[#00A896]">Dominate Your Market</span>
           </h2>
         </div>
 

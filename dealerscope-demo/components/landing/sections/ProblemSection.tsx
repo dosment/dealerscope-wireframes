@@ -32,7 +32,7 @@ export default function ProblemSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Your Competition Is Winning Deals{' '}
-            <span className="text-accent">You Should Have Won</span>
+            <span className="text-[#00A896]">You Should Have Won</span>
           </h2>
         </div>
 

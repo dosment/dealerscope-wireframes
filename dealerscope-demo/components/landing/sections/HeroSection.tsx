@@ -35,7 +35,7 @@ export default function HeroSection() {
           {/* Main Headline */}
           <h1 className="font-brand text-4xl lg:text-6xl font-bold mb-6 leading-tight">
             Dominate Your Territory With{' '}
-            <span className="text-accent">Real-Time Dealership Intelligence</span>
+            <span className="text-[#00A896]">Real-Time Dealership Intelligence</span>
           </h1>
 
           {/* Subheadline */}
@@ -49,7 +49,7 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <a
               href="#get-started"
-              className="inline-flex items-center justify-center px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+              className="inline-flex items-center justify-center px-8 py-4 bg-[#00A896] hover:bg-[#008778] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               Join the Waitlist
               <ArrowRight className="w-5 h-5 ml-2" strokeWidth={2} />

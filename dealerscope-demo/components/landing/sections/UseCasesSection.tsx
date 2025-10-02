@@ -44,7 +44,7 @@ export default function UseCasesSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Built for{' '}
-            <span className="text-accent">Sales Professionals Who Win</span>
+            <span className="text-[#00A896]">Sales Professionals Who Win</span>
           </h2>
         </div>
 

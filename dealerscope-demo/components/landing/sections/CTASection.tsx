@@ -24,8 +24,7 @@ export default function CTASection() {
         {/* Tally Form Embed */}
         <div className="bg-white rounded-xl overflow-hidden shadow-2xl">
           <iframe
-            data-tally-src="https://tally.so/embed/mRp7MP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
-            loading="lazy"
+            src="https://tally.so/embed/mRp7MP?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1"
             width="100%"
             height="2440"
             frameBorder="0"

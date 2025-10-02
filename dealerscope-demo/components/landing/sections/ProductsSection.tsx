@@ -53,7 +53,7 @@ export default function ProductsSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Comprehensive Coverage Across{' '}
-            <span className="text-accent">Five Product Categories</span>
+            <span className="text-[#00A896]">Five Product Categories</span>
           </h2>
         </div>
 

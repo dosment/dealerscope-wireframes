@@ -80,7 +80,7 @@ export default function SolutionSection() {
           <div className="order-1 lg:order-2">
             <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-6">
               Own Your Territory.{' '}
-              <span className="text-accent">Outsmart Your Competition.</span>
+              <span className="text-[#00A896]">Outsmart Your Competition.</span>
             </h2>
 
             <div className="space-y-4 mb-8">

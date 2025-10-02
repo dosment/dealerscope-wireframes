@@ -47,7 +47,7 @@ export default function EarlyAccessSection() {
 
           <a
             href="#get-started"
-            className="inline-flex items-center justify-center px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
+            className="inline-flex items-center justify-center px-8 py-4 bg-[#00A896] hover:bg-[#008778] text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             Join the Waitlist Now
           </a>
