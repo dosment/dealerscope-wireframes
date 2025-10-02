@@ -39,22 +39,21 @@ export default function AdminBillingPage() {
   }, []);
 
   const mockSubscriptions: Subscription[] = [
-    { id: '1', userName: 'John Doe', userEmail: 'john@example.com', plan: 'Enterprise', amount: 199, status: 'active', nextBilling: 'Apr 15, 2024', customerSince: 'Jan 2023' },
-    { id: '2', userName: 'Sarah Miller', userEmail: 'sarah@example.com', plan: 'Professional', amount: 99, status: 'active', nextBilling: 'Apr 18, 2024', customerSince: 'Mar 2023' },
-    { id: '3', userName: 'Mike Johnson', userEmail: 'mike@example.com', plan: 'Starter', amount: 49, status: 'active', nextBilling: 'Apr 20, 2024', customerSince: 'Feb 2024' },
-    { id: '4', userName: 'Emily Davis', userEmail: 'emily@example.com', plan: 'Professional', amount: 99, status: 'past_due', nextBilling: 'Apr 10, 2024', customerSince: 'Jun 2023' },
-    { id: '5', userName: 'Robert Wilson', userEmail: 'robert@example.com', plan: 'Enterprise', amount: 199, status: 'canceled', nextBilling: 'N/A', customerSince: 'Aug 2022' },
-    { id: '6', userName: 'Lisa Anderson', userEmail: 'lisa@example.com', plan: 'Starter', amount: 49, status: 'trialing', nextBilling: 'Apr 25, 2024', customerSince: 'Apr 2024' },
+    { id: '1', userName: 'John Doe', userEmail: 'john@example.com', plan: 'Tier 3', amount: 199, status: 'active', nextBilling: 'Apr 15, 2024', customerSince: 'Jan 2023' },
+    { id: '2', userName: 'Sarah Miller', userEmail: 'sarah@example.com', plan: 'Tier 2', amount: 49, status: 'active', nextBilling: 'Apr 18, 2024', customerSince: 'Mar 2023' },
+    { id: '3', userName: 'Mike Johnson', userEmail: 'mike@example.com', plan: 'Tier 1', amount: 0, status: 'active', nextBilling: 'N/A', customerSince: 'Feb 2024' },
+    { id: '4', userName: 'Emily Davis', userEmail: 'emily@example.com', plan: 'Tier 2', amount: 49, status: 'past_due', nextBilling: 'Apr 10, 2024', customerSince: 'Jun 2023' },
+    { id: '5', userName: 'Robert Wilson', userEmail: 'robert@example.com', plan: 'Tier 3', amount: 199, status: 'canceled', nextBilling: 'N/A', customerSince: 'Aug 2022' },
+    { id: '6', userName: 'Lisa Anderson', userEmail: 'lisa@example.com', plan: 'Tier 2', amount: 49, status: 'trialing', nextBilling: 'Apr 25, 2024', customerSince: 'Apr 2024' },
   ];
 
   const mockTransactions: Transaction[] = [
     { id: '1', userName: 'John Doe', amount: 199, status: 'succeeded', date: 'Mar 15, 2024', invoice: 'INV-2024-001' },
-    { id: '2', userName: 'Sarah Miller', amount: 99, status: 'succeeded', date: 'Mar 18, 2024', invoice: 'INV-2024-002' },
-    { id: '3', userName: 'Emily Davis', amount: 99, status: 'failed', date: 'Mar 10, 2024', invoice: 'INV-2024-003' },
-    { id: '4', userName: 'Mike Johnson', amount: 49, status: 'succeeded', date: 'Mar 20, 2024', invoice: 'INV-2024-004' },
-    { id: '5', userName: 'Lisa Anderson', amount: 49, status: 'succeeded', date: 'Mar 25, 2024', invoice: 'INV-2024-005' },
-    { id: '6', userName: 'John Doe', amount: 199, status: 'succeeded', date: 'Feb 15, 2024', invoice: 'INV-2024-006' },
-    { id: '7', userName: 'David Brown', amount: 99, status: 'refunded', date: 'Feb 12, 2024', invoice: 'INV-2024-007' },
+    { id: '2', userName: 'Sarah Miller', amount: 49, status: 'succeeded', date: 'Mar 18, 2024', invoice: 'INV-2024-002' },
+    { id: '3', userName: 'Emily Davis', amount: 49, status: 'failed', date: 'Mar 10, 2024', invoice: 'INV-2024-003' },
+    { id: '4', userName: 'Lisa Anderson', amount: 49, status: 'succeeded', date: 'Mar 25, 2024', invoice: 'INV-2024-005' },
+    { id: '5', userName: 'John Doe', amount: 199, status: 'succeeded', date: 'Feb 15, 2024', invoice: 'INV-2024-006' },
+    { id: '6', userName: 'David Brown', amount: 49, status: 'refunded', date: 'Feb 12, 2024', invoice: 'INV-2024-007' },
   ];
 
   const filteredSubscriptions = mockSubscriptions.filter(sub => {
@@ -138,40 +137,39 @@ export default function AdminBillingPage() {
             <div className="space-y-4">
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-secondary">Enterprise ($199/mo)</span>
+                  <span className="text-sm text-secondary">Tier 3 - Enterprise ($199/mo)</span>
                   <span className="text-sm font-medium text-hero">
-                    {mockSubscriptions.filter(s => s.plan === 'Enterprise' && s.status === 'active').length} users - $
-                    {mockSubscriptions.filter(s => s.plan === 'Enterprise' && s.status === 'active').length * 199}
+                    {mockSubscriptions.filter(s => s.plan === 'Tier 3' && s.status === 'active').length} users - $
+                    {mockSubscriptions.filter(s => s.plan === 'Tier 3' && s.status === 'active').length * 199}
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-blue-600 h-2 rounded-full" style={{ width: '35%' }}></div>
+                  <div className="bg-blue-600 h-2 rounded-full" style={{ width: '50%' }}></div>
                 </div>
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-secondary">Professional ($99/mo)</span>
+                  <span className="text-sm text-secondary">Tier 2 - Pro ($49/mo)</span>
                   <span className="text-sm font-medium text-hero">
-                    {mockSubscriptions.filter(s => s.plan === 'Professional' && s.status === 'active').length} users - $
-                    {mockSubscriptions.filter(s => s.plan === 'Professional' && s.status === 'active').length * 99}
+                    {mockSubscriptions.filter(s => s.plan === 'Tier 2' && s.status === 'active').length} users - $
+                    {mockSubscriptions.filter(s => s.plan === 'Tier 2' && s.status === 'active').length * 49}
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-green-600 h-2 rounded-full" style={{ width: '45%' }}></div>
+                  <div className="bg-green-600 h-2 rounded-full" style={{ width: '25%' }}></div>
                 </div>
               </div>
 
               <div>
                 <div className="flex items-center justify-between mb-2">
-                  <span className="text-sm text-secondary">Starter ($49/mo)</span>
+                  <span className="text-sm text-secondary">Tier 1 - Free ($0/mo)</span>
                   <span className="text-sm font-medium text-hero">
-                    {mockSubscriptions.filter(s => s.plan === 'Starter' && s.status === 'active').length} users - $
-                    {mockSubscriptions.filter(s => s.plan === 'Starter' && s.status === 'active').length * 49}
+                    {mockSubscriptions.filter(s => s.plan === 'Tier 1' && s.status === 'active').length} users - $0
                   </span>
                 </div>
                 <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div className="bg-purple-600 h-2 rounded-full" style={{ width: '20%' }}></div>
+                  <div className="bg-purple-600 h-2 rounded-full" style={{ width: '25%' }}></div>
                 </div>
               </div>
             </div>
@@ -233,9 +231,9 @@ export default function AdminBillingPage() {
                       className="w-full px-3 py-2 border border-secondary rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500"
                     >
                       <option value="all">All Plans</option>
-                      <option value="Starter">Starter</option>
-                      <option value="Professional">Professional</option>
-                      <option value="Enterprise">Enterprise</option>
+                      <option value="Tier 1">Tier 1 (Free)</option>
+                      <option value="Tier 2">Tier 2 (Pro)</option>
+                      <option value="Tier 3">Tier 3 (Enterprise)</option>
                     </select>
                   </div>
                 </div>

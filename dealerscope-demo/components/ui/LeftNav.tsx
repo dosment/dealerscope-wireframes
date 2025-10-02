@@ -139,8 +139,8 @@ const LeftNav: React.FC<LeftNavProps> = ({
           if (item.href === pathname) {
             // Exact match
             isActive = true;
-          } else if (item.href !== '/' && pathname.startsWith(`${item.href}/`)) {
-            // Starts with match (but not for root path to avoid false positives)
+          } else if (pathname.startsWith(`${item.href}/`) && item.href !== '/' && item.href !== '/admin' && item.href !== '/dealerships' && item.href !== '/automotive-group') {
+            // Starts with match for sub-routes, but exclude base routes that shouldn't match their sub-routes
             isActive = true;
           } else if (item.href === '/dealerships' && pathname === '/' && userType !== 'admin') {
             // Special case: sales_rep and automotive_group default to /dealerships view on /
