@@ -133,10 +133,25 @@ const LeftNav: React.FC<LeftNavProps> = ({
       {/* Navigation Items */}
       <nav className="flex-1 px-3 py-8 space-y-1.5">
         {navigation.map((item) => {
-          const isActive =
-            pathname === item.href ||
-            pathname.startsWith(`${item.href}/`) ||
-            (item.href === '/dealerships' && pathname === '/');
+          // Check for exact match or starts with (for sub-routes)
+          let isActive = false;
+
+          if (item.href === pathname) {
+            // Exact match
+            isActive = true;
+          } else if (item.href !== '/' && pathname.startsWith(`${item.href}/`)) {
+            // Starts with match (but not for root path to avoid false positives)
+            isActive = true;
+          } else if (item.href === '/dealerships' && pathname === '/' && userType !== 'admin') {
+            // Special case: sales_rep and automotive_group default to /dealerships view on /
+            isActive = true;
+          } else if (item.href === '/admin' && pathname === '/' && userType === 'admin') {
+            // Special case: admin defaults to /admin view on /
+            isActive = true;
+          } else if (item.href === '/automotive-group' && pathname === '/' && userType === 'automotive_group') {
+            // Special case: automotive_group defaults to /automotive-group view on /
+            isActive = true;
+          }
 
           const linkClasses = [
             'w-full flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-all duration-200',
