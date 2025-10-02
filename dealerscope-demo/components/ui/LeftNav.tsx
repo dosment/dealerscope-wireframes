@@ -123,7 +123,7 @@ const LeftNav: React.FC<LeftNavProps> = ({
       {/* Logo and Branding */}
       <div className="px-6 py-6 flex items-center space-x-3 border-b border-primary">
         <div className="w-12 h-12 flex items-center justify-center rounded-xl bg-elevated p-2">
-          <img src="/raccoon.svg" alt="DealerScope" className="w-full h-full object-contain" />
+          <img src="/Racoon.png" alt="DealerScope" className="w-full h-full object-contain" />
         </div>
         <h1 className="brand-headline text-base font-bold text-primary tracking-wider">
           DEALERSCOPE
@@ -213,7 +213,7 @@ const LeftNav: React.FC<LeftNavProps> = ({
             </div>
             <div className="flex items-center justify-between">
               <span>System Status:</span>
-              <span className="font-medium text-green-600">Operational</span>
+              <span className="font-medium text-success">Operational</span>
             </div>
           </div>
         )}
