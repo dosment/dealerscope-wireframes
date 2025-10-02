@@ -230,6 +230,31 @@ Any code containing emoji characters will be immediately rejected.
 
 ------------------------------------------------------------------------
 
+## Email Integration Reference
+
+**CRITICAL:** Always refer to `RESEND-PLAN.md` when implementing email features:
+- Resend API configuration and setup
+- Email template structure with React Email
+- Tier-based email notification rules
+- Transactional vs alert vs marketing emails
+- Email preferences and user settings
+
+**Key Points:**
+- Tier 1 (Free) gets only critical account emails (no alerts)
+- Tier 2 (Pro) gets product change alerts and daily digests
+- Tier 3 (Enterprise) gets real-time alerts and unlimited emails
+- All templates use React Email with Tailwind CSS
+- Email preferences stored in users table
+
+**Before implementing any email feature:**
+1. Check `RESEND-PLAN.md` for email categories and triggers
+2. Verify tier-based email permissions
+3. Use React Email templates (no plain HTML)
+4. Test with Resend test mode
+5. Implement proper unsubscribe functionality
+
+------------------------------------------------------------------------
+
 ## Teaching Mode Rules
 
 -   Assume I don't know why something works --- always narrate your
