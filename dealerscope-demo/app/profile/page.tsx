@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import Layout from '@/components/ui/Layout';
 import Input from '@/components/ui/Input';
 import Button from '@/components/ui/Button';
+import { User, Lock, Bell, CreditCard, AlertTriangle, Camera } from 'lucide-react';
 
 export default function ProfilePage() {
   const [name, setName] = useState('John Doe');
@@ -26,8 +27,11 @@ export default function ProfilePage() {
             {/* Profile Form */}
             <div className="lg:col-span-2 space-y-6">
               {/* Personal Information */}
-              <div className="bg-elevated border border-primary rounded-lg p-6">
-                <h2 className="text-lg font-medium text-hero mb-4">Personal Information</h2>
+              <div className="bg-elevated border border-primary rounded-xl p-6">
+                <h2 className="text-lg font-medium text-hero mb-6 flex items-center gap-2">
+                  <User className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                  Personal Information
+                </h2>
 
                 <div className="space-y-4">
                   <div>
@@ -77,7 +81,7 @@ export default function ProfilePage() {
                     <select
                       value={timezone}
                       onChange={(e) => setTimezone(e.target.value)}
-                      className="block w-full border border-secondary rounded-md px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-blue-500"
+                      className="block w-full border border-secondary rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-accent"
                     >
                       <option value="America/New_York">Eastern Time (ET)</option>
                       <option value="America/Chicago">Central Time (CT)</option>
@@ -89,8 +93,11 @@ export default function ProfilePage() {
               </div>
 
               {/* Password */}
-              <div className="bg-elevated border border-primary rounded-lg p-6">
-                <h2 className="text-lg font-medium text-hero mb-4">Change Password</h2>
+              <div className="bg-elevated border border-primary rounded-xl p-6">
+                <h2 className="text-lg font-medium text-hero mb-6 flex items-center gap-2">
+                  <Lock className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                  Change Password
+                </h2>
 
                 <div className="space-y-4">
                   <div>
@@ -123,28 +130,31 @@ export default function ProfilePage() {
               </div>
 
               {/* Preferences */}
-              <div className="bg-elevated border border-primary rounded-lg p-6">
-                <h2 className="text-lg font-medium text-hero mb-4">Preferences</h2>
+              <div className="bg-elevated border border-primary rounded-xl p-6">
+                <h2 className="text-lg font-medium text-hero mb-6 flex items-center gap-2">
+                  <Bell className="w-5 h-5 text-accent" strokeWidth={1.5} />
+                  Notification Preferences
+                </h2>
 
                 <div className="space-y-4">
-                  <label className="flex items-center">
-                    <input type="checkbox" className="rounded border-secondary text-blue-600" defaultChecked />
-                    <span className="ml-2 text-sm text-tertiary">Email notifications for new changes</span>
+                  <label className="flex items-center cursor-pointer group">
+                    <input type="checkbox" className="rounded border-secondary text-accent focus:ring-accent" defaultChecked />
+                    <span className="ml-3 text-sm text-tertiary group-hover:text-primary transition-colors duration-200">Email notifications for new changes</span>
                   </label>
 
-                  <label className="flex items-center">
-                    <input type="checkbox" className="rounded border-secondary text-blue-600" defaultChecked />
-                    <span className="ml-2 text-sm text-tertiary">Weekly digest emails</span>
+                  <label className="flex items-center cursor-pointer group">
+                    <input type="checkbox" className="rounded border-secondary text-accent focus:ring-accent" defaultChecked />
+                    <span className="ml-3 text-sm text-tertiary group-hover:text-primary transition-colors duration-200">Weekly digest emails</span>
                   </label>
 
-                  <label className="flex items-center">
-                    <input type="checkbox" className="rounded border-secondary text-blue-600" />
-                    <span className="ml-2 text-sm text-tertiary">Push notifications (browser)</span>
+                  <label className="flex items-center cursor-pointer group">
+                    <input type="checkbox" className="rounded border-secondary text-accent focus:ring-accent" />
+                    <span className="ml-3 text-sm text-tertiary group-hover:text-primary transition-colors duration-200">Push notifications (browser)</span>
                   </label>
 
-                  <label className="flex items-center">
-                    <input type="checkbox" className="rounded border-secondary text-blue-600" defaultChecked />
-                    <span className="ml-2 text-sm text-tertiary">Marketing emails</span>
+                  <label className="flex items-center cursor-pointer group">
+                    <input type="checkbox" className="rounded border-secondary text-accent focus:ring-accent" defaultChecked />
+                    <span className="ml-3 text-sm text-tertiary group-hover:text-primary transition-colors duration-200">Marketing emails</span>
                   </label>
                 </div>
               </div>
@@ -163,27 +173,33 @@ export default function ProfilePage() {
             {/* Sidebar */}
             <div className="lg:col-span-1">
               {/* Profile Picture */}
-              <div className="bg-elevated border border-primary rounded-lg p-6 mb-6">
+              <div className="bg-elevated border border-primary rounded-xl p-6 mb-6">
                 <h3 className="text-sm font-medium text-hero mb-4">Profile Picture</h3>
                 <div className="flex flex-col items-center">
-                  <div className="w-24 h-24 rounded-full bg-blue-100 flex items-center justify-center mb-4">
-                    <span className="text-blue-700 font-bold text-3xl">
+                  <div className="relative w-24 h-24 rounded-full bg-accent/10 flex items-center justify-center mb-4">
+                    <span className="text-accent font-bold text-3xl">
                       {name.charAt(0)}
                     </span>
+                    <div className="absolute bottom-0 right-0 w-8 h-8 bg-accent rounded-full flex items-center justify-center cursor-pointer hover:bg-accent/80 transition-colors duration-200">
+                      <Camera className="w-4 h-4 text-white" strokeWidth={2} />
+                    </div>
                   </div>
-                  <button className="text-sm text-blue-600 hover:text-blue-700">
+                  <button className="text-sm text-accent hover:text-hero transition-colors duration-200 font-medium">
                     Change Photo
                   </button>
                 </div>
               </div>
 
               {/* Account Info */}
-              <div className="bg-elevated border border-primary rounded-lg p-6 mb-6">
-                <h3 className="text-sm font-medium text-hero mb-4">Account Info</h3>
+              <div className="bg-elevated border border-primary rounded-xl p-6 mb-6">
+                <h3 className="text-sm font-medium text-hero mb-4 flex items-center gap-2">
+                  <CreditCard className="w-4 h-4 text-accent" strokeWidth={1.5} />
+                  Account Info
+                </h3>
                 <div className="space-y-3 text-sm">
                   <div>
                     <span className="text-muted">Plan:</span>
-                    <span className="ml-2 font-medium text-hero">Enterprise</span>
+                    <span className="ml-2 font-medium text-hero">Tier 3</span>
                   </div>
                   <div>
                     <span className="text-muted">Dealerships:</span>
@@ -198,20 +214,23 @@ export default function ProfilePage() {
                     <span className="ml-2 font-medium text-hero">Today at 9:42 AM</span>
                   </div>
                 </div>
-                <button className="mt-4 w-full text-sm text-blue-600 hover:text-blue-700 text-center">
-                  Upgrade Plan
+                <button className="mt-4 w-full text-sm text-accent hover:text-hero transition-colors duration-200 text-center font-medium">
+                  Upgrade Plan →
                 </button>
               </div>
 
               {/* Danger Zone */}
-              <div className="bg-elevated border border-red-200 rounded-lg p-6">
-                <h3 className="text-sm font-medium text-red-900 mb-4">Danger Zone</h3>
+              <div className="bg-danger-600/5 border border-danger-600/20 rounded-xl p-6">
+                <h3 className="text-sm font-medium text-danger-600 mb-4 flex items-center gap-2">
+                  <AlertTriangle className="w-4 h-4" strokeWidth={1.5} />
+                  Danger Zone
+                </h3>
                 <p className="text-sm text-secondary mb-4">
                   Permanently delete your account and all associated data.
                 </p>
-                <button className="w-full px-4 py-2 bg-red-600 text-white text-sm rounded-md hover:bg-red-700 transition-colors">
+                <Button variant="danger" fullWidth size="md">
                   Delete Account
-                </button>
+                </Button>
               </div>
             </div>
           </div>
