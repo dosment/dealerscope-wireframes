@@ -161,7 +161,7 @@ export default function ProfilePage() {
 
               {/* Save Button */}
               <div className="flex justify-end space-x-3">
-                <Button variant="secondary">
+                <Button variant="tertiary">
                   Cancel
                 </Button>
                 <Button variant="primary">
