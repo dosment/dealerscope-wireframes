@@ -19,7 +19,7 @@ export default function SolutionSection() {
         <div className="grid lg:grid-cols-2 gap-12 items-center">
           {/* Left: Visual */}
           <div className="order-2 lg:order-1">
-            <div className="bg-elevated border border-primary rounded-lg p-6 shadow-xl">
+            <div className="bg-elevated border border-primary rounded-xl p-6 shadow-xl">
               {/* Mock Dashboard */}
               <div className="space-y-4">
                 <div className="flex items-center justify-between pb-4 border-b border-primary">
@@ -32,15 +32,15 @@ export default function SolutionSection() {
 
                 {/* Mock Territory Stats */}
                 <div className="grid grid-cols-3 gap-4">
-                  <div className="bg-secondary rounded-lg p-4 text-center">
+                  <div className="bg-secondary rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-hero">47</div>
                     <div className="text-xs text-muted">Dealers</div>
                   </div>
-                  <div className="bg-warning-50 rounded-lg p-4 text-center">
+                  <div className="bg-warning-50 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-warning-700">8</div>
                     <div className="text-xs text-warning-700">Changes</div>
                   </div>
-                  <div className="bg-success-50 rounded-lg p-4 text-center">
+                  <div className="bg-success-50 rounded-xl p-4 text-center">
                     <div className="text-2xl font-bold text-success-700">3</div>
                     <div className="text-xs text-success-700">Wins</div>
                   </div>
@@ -48,7 +48,7 @@ export default function SolutionSection() {
 
                 {/* Mock Alert List */}
                 <div className="space-y-2">
-                  <div className="flex items-center justify-between p-3 bg-danger-50 border border-danger-200 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-danger-50 border border-danger-200 rounded-xl">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-danger-900">Luxury Motors</div>
                       <div className="text-xs text-danger-700">Removed LivePerson</div>
@@ -56,7 +56,7 @@ export default function SolutionSection() {
                     <span className="text-xs text-danger-600">2h ago</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-3 bg-warning-50 border border-warning-200 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-warning-50 border border-warning-200 rounded-xl">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-warning-900">Premium Auto</div>
                       <div className="text-xs text-warning-700">Installed Roadster</div>
@@ -64,7 +64,7 @@ export default function SolutionSection() {
                     <span className="text-xs text-warning-600">5h ago</span>
                   </div>
 
-                  <div className="flex items-center justify-between p-3 bg-success-50 border border-success-200 rounded-lg">
+                  <div className="flex items-center justify-between p-3 bg-success-50 border border-success-200 rounded-xl">
                     <div className="flex-1">
                       <div className="text-sm font-medium text-success-900">Elite Dealership</div>
                       <div className="text-xs text-success-700">No change (stable)</div>
@@ -80,14 +80,14 @@ export default function SolutionSection() {
           <div className="order-1 lg:order-2">
             <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-6">
               Own Your Territory.{' '}
-              <span className="text-navy-600">Outsmart Your Competition.</span>
+              <span className="text-accent">Outsmart Your Competition.</span>
             </h2>
 
             <div className="space-y-4 mb-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <svg
-                    className="w-6 h-6 text-teal-600 flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-accent flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -105,12 +105,12 @@ export default function SolutionSection() {
             </div>
 
             {/* Stat Callout */}
-            <div className="bg-navy-50 border border-navy-200 rounded-lg p-6">
-              <div className="text-sm text-navy-700 mb-1">Average Response Time</div>
-              <div className="text-3xl font-bold text-navy-900">
+            <div className="bg-secondary border border-accent/20 rounded-xl p-6">
+              <div className="text-sm text-hero mb-1">Average Response Time</div>
+              <div className="text-3xl font-bold text-primary">
                 2.4 Hours
               </div>
-              <div className="text-sm text-navy-600 mt-1">
+              <div className="text-sm text-accent mt-1">
                 From change detection to your outreach
               </div>
             </div>

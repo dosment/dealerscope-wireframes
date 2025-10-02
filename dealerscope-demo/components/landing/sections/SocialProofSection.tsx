@@ -41,13 +41,13 @@ export default function SocialProofSection() {
   ];
 
   return (
-    <section id="social-proof" className="py-20 bg-primary">
+    <section id="social-proof" className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Be Among the First to{' '}
-            <span className="text-navy-600">Access DealerScope</span>
+            <span className="text-accent">Access DealerScope</span>
           </h2>
         </div>
 
@@ -55,7 +55,7 @@ export default function SocialProofSection() {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-navy-600 mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">
                 {stat.value}
               </div>
               <div className="text-sm text-muted uppercase tracking-wide">
@@ -70,10 +70,10 @@ export default function SocialProofSection() {
           {testimonials.map((testimonial, index) => (
             <div
               key={index}
-              className="bg-elevated border border-primary rounded-lg p-6"
+              className="bg-elevated border border-primary rounded-xl p-6"
             >
               <div className="mb-4">
-                <span className="inline-block bg-teal-100 text-teal-700 text-xs font-semibold px-3 py-1 rounded-full">
+                <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">
                   {testimonial.badge}
                 </span>
               </div>

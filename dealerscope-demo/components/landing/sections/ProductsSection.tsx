@@ -16,44 +16,44 @@ export default function ProductsSection() {
   const categories: Category[] = [
     {
       icon: MessageCircle,
-      iconClassName: 'text-teal-600',
+      iconClassName: 'text-accent',
       title: 'Chat Tools',
       products: ['LivePerson', 'Podium', 'Gubagoo', '+ Others'],
     },
     {
       icon: Car,
-      iconClassName: 'text-navy-600',
+      iconClassName: 'text-accent',
       title: 'Digital Retailing',
       products: ['Roadster', 'AutoFi', 'Upstart', '+ Others'],
     },
     {
       icon: Globe,
-      iconClassName: 'text-navy-600',
+      iconClassName: 'text-accent',
       title: 'Website Providers',
       products: ['Dealer.com', 'DealerOn', 'Dealer Inspire', '+ Others'],
     },
     {
       icon: CreditCard,
-      iconClassName: 'text-teal-600',
+      iconClassName: 'text-accent',
       title: 'Finance Apps',
       products: ['RouteOne', 'DealerTrack', '+ Others'],
     },
     {
       icon: RefreshCcw,
-      iconClassName: 'text-navy-600',
+      iconClassName: 'text-accent',
       title: 'Trade Tools',
       products: ['vAuto', 'AccuTrade', '+ Others'],
     },
   ];
 
   return (
-    <section id="products" className="py-20 bg-primary">
+    <section id="products" className="py-20 bg-secondary">
       <div className="max-w-7xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Comprehensive Coverage Across{' '}
-            <span className="text-navy-600">Five Product Categories</span>
+            <span className="text-accent">Five Product Categories</span>
           </h2>
         </div>
 
@@ -65,7 +65,7 @@ export default function ProductsSection() {
             return (
               <div
                 key={index}
-                className="bg-elevated border border-primary rounded-lg p-6 text-center hover:shadow-lg transition-shadow"
+                className="bg-elevated border border-primary rounded-xl p-6 text-center hover:shadow-lg transition-shadow"
               >
                 <div className="flex justify-center mb-4">
                   <Icon aria-hidden="true" className={`w-10 h-10 ${category.iconClassName}`} />

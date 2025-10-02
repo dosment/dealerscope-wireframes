@@ -44,7 +44,7 @@ export default function UseCasesSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Built for{' '}
-            <span className="text-navy-600">Sales Professionals Who Win</span>
+            <span className="text-accent">Sales Professionals Who Win</span>
           </h2>
         </div>
 
@@ -53,7 +53,7 @@ export default function UseCasesSection() {
           {useCases.map((useCase, index) => (
             <div
               key={index}
-              className="bg-elevated border border-primary rounded-lg p-8 hover:shadow-lg transition-shadow"
+              className="bg-elevated border border-primary rounded-xl p-8 hover:shadow-lg transition-shadow"
             >
               <h3 className="font-brand text-xl font-semibold text-hero mb-4">
                 {useCase.title}
@@ -66,7 +66,7 @@ export default function UseCasesSection() {
                   <li key={bIndex} className="flex items-start space-x-2">
                     <svg
                       className={`w-5 h-5 ${
-                        useCase.color === 'teal' ? 'text-teal-600' : 'text-navy-600'
+                        useCase.color === 'teal' ? 'text-accent' : 'text-accent'
                       } flex-shrink-0 mt-0.5`}
                       fill="none"
                       stroke="currentColor"

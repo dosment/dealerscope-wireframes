@@ -46,7 +46,7 @@ export default function FAQSection() {
   ];
 
   return (
-    <section id="faq" className="py-20 bg-primary">
+    <section id="faq" className="py-20 bg-secondary">
       <div className="max-w-4xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -60,7 +60,7 @@ export default function FAQSection() {
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-elevated border border-primary rounded-lg overflow-hidden"
+              className="bg-elevated border border-primary rounded-xl overflow-hidden"
             >
               <button
                 onClick={() => setOpenIndex(openIndex === index ? null : index)}
@@ -68,7 +68,7 @@ export default function FAQSection() {
               >
                 <span className="font-semibold text-hero pr-8">{faq.question}</span>
                 <svg
-                  className={`w-5 h-5 text-navy-600 flex-shrink-0 transition-transform ${
+                  className={`w-5 h-5 text-accent flex-shrink-0 transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                   fill="none"
