@@ -21,6 +21,12 @@ const LeftNav: React.FC<LeftNavProps> = ({
   const pathname = usePathname();
   const salesRepNavigation: NavigationItem[] = [
     {
+      id: 'dashboard',
+      label: 'Dashboard',
+      icon: <LayoutDashboard className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/'
+    },
+    {
       id: 'dealerships',
       label: 'My Dealers',
       icon: <Building2 className="w-5 h-5" strokeWidth={1.5} />,
@@ -48,6 +54,12 @@ const LeftNav: React.FC<LeftNavProps> = ({
 
   // Automotive Group navigation - mirrors sales rep for now
   const automotiveGroupNavigation: NavigationItem[] = [
+    {
+      id: 'dashboard',
+      label: 'Dashboard',
+      icon: <LayoutDashboard className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/'
+    },
     {
       id: 'dealerships',
       label: 'My Dealers',
@@ -136,17 +148,8 @@ const LeftNav: React.FC<LeftNavProps> = ({
           if (item.href === pathname) {
             // Exact match
             isActive = true;
-          } else if (pathname.startsWith(`${item.href}/`) && item.href !== '/' && item.href !== '/admin' && item.href !== '/dealerships' && item.href !== '/automotive-group') {
+          } else if (pathname.startsWith(`${item.href}/`) && item.href !== '/' && item.href !== '/admin' && item.href !== '/automotive-group') {
             // Starts with match for sub-routes, but exclude base routes that shouldn't match their sub-routes
-            isActive = true;
-          } else if (item.href === '/dealerships' && pathname === '/' && userType !== 'admin') {
-            // Special case: sales_rep and automotive_group default to /dealerships view on /
-            isActive = true;
-          } else if (item.href === '/admin' && pathname === '/' && userType === 'admin') {
-            // Special case: admin defaults to /admin view on /
-            isActive = true;
-          } else if (item.href === '/automotive-group' && pathname === '/' && userType === 'automotive_group') {
-            // Special case: automotive_group defaults to /automotive-group view on /
             isActive = true;
           }
 

@@ -41,7 +41,7 @@ export default function SettingsPage() {
                   <button
                     onClick={() => setEmailEnabled(!emailEnabled)}
                     className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                      emailEnabled ? 'bg-accent' : 'bg-tertiary'
+                      emailEnabled ? 'bg-success' : 'bg-tertiary'
                     }`}
                   >
                     <span
@@ -111,7 +111,7 @@ export default function SettingsPage() {
                         type="checkbox"
                         checked={categories.includes(category.id)}
                         onChange={() => handleCategoryChange(category.id)}
-                        className="mt-1 h-4 w-4 text-accent focus:ring-accent border-secondary rounded"
+                        className="mt-1 h-4 w-4 text-hero focus:ring-hero border-secondary rounded"
                       />
                       <div className="flex-1 min-w-0">
                         <div className="text-sm font-medium text-hero">{category.label}</div>
