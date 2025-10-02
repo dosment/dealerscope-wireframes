@@ -12,7 +12,7 @@ interface NavigationItem {
 }
 
 interface LeftNavProps {
-  userType?: 'sales_rep' | 'admin';
+  userType?: 'sales_rep' | 'admin' | 'automotive_group';
 }
 
 const LeftNav: React.FC<LeftNavProps> = ({
@@ -20,6 +20,34 @@ const LeftNav: React.FC<LeftNavProps> = ({
 }) => {
   const pathname = usePathname();
   const salesRepNavigation: NavigationItem[] = [
+    {
+      id: 'dealerships',
+      label: 'My Dealers',
+      icon: <Building2 className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/dealerships'
+    },
+    {
+      id: 'alerts',
+      label: 'Alerts',
+      icon: <Bell className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/alerts'
+    },
+    {
+      id: 'reports',
+      label: 'Prospecting',
+      icon: <BarChart3 className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/reports'
+    },
+    {
+      id: 'settings',
+      label: 'Email Setup',
+      icon: <Mail className="w-5 h-5" strokeWidth={1.5} />,
+      href: '/settings'
+    }
+  ];
+
+  // Automotive Group navigation - mirrors sales rep for now
+  const automotiveGroupNavigation: NavigationItem[] = [
     {
       id: 'dealerships',
       label: 'My Dealers',
@@ -85,7 +113,10 @@ const LeftNav: React.FC<LeftNavProps> = ({
     }
   ];
 
-  const navigation = userType === 'admin' ? adminNavigation : salesRepNavigation;
+  const navigation =
+    userType === 'admin' ? adminNavigation :
+    userType === 'automotive_group' ? automotiveGroupNavigation :
+    salesRepNavigation;
 
   return (
     <div className="w-64 min-h-full flex flex-col border-r border-primary bg-secondary">
@@ -125,7 +156,22 @@ const LeftNav: React.FC<LeftNavProps> = ({
 
       {/* Footer Info */}
       <div className="px-4 py-4 border-t border-primary">
-        {userType === 'sales_rep' ? (
+        {userType === 'automotive_group' ? (
+          <div className="text-xs theme-text-muted space-y-1">
+            <div className="flex items-center justify-between">
+              <span>Plan:</span>
+              <span className="font-medium theme-text-primary">Enterprise</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span>Usage:</span>
+              <span className="font-medium theme-text-primary">25/50 dealers</span>
+            </div>
+            <div className="flex items-center justify-between">
+              <span>Last scan:</span>
+              <span className="font-medium theme-text-primary">2h ago</span>
+            </div>
+          </div>
+        ) : userType === 'sales_rep' ? (
           <div className="text-xs theme-text-muted space-y-1">
             <div className="flex items-center justify-between">
               <span>Plan:</span>

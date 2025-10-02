@@ -21,7 +21,7 @@ interface TopBarProps {
   isScanning?: boolean;
   notifications?: number;
   user?: User;
-  userType?: 'sales_rep' | 'admin';
+  userType?: 'sales_rep' | 'admin' | 'automotive_group';
   onViewSwitch?: () => void;
   recentChanges?: any[];
 }
@@ -43,7 +43,11 @@ const TopBar: React.FC<TopBarProps> = ({
       <div className="flex items-center space-x-2.5 text-sm">
         <span className="font-bold text-primary tracking-wide">DealerScope</span>
         <ChevronRight className="w-3.5 h-3.5 text-muted" strokeWidth={2} />
-        <span className="text-muted font-medium">{userType === 'admin' ? 'Admin Operations' : 'Sales Performance'}</span>
+        <span className="text-muted font-medium">
+          {userType === 'admin' ? 'Admin Operations' :
+           userType === 'automotive_group' ? 'Automotive Group' :
+           'Sales Performance'}
+        </span>
       </div>
 
       {/* Right section - Actions and user */}
@@ -93,8 +97,8 @@ const TopBar: React.FC<TopBarProps> = ({
           </div>
         )}
 
-        {/* Scan Now button - only for sales_rep */}
-        {userType === 'sales_rep' && (
+        {/* Scan Now button - for sales_rep and automotive_group */}
+        {(userType === 'sales_rep' || userType === 'automotive_group') && (
           <Button
             variant="primary"
             size="sm"

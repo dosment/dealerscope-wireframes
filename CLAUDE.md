@@ -181,6 +181,30 @@ Any code containing emoji characters will be immediately rejected.
 
 ------------------------------------------------------------------------
 
+## Backend Development Reference
+
+**CRITICAL:** Always refer to `BACKEND-PLAN.md` when making decisions about:
+- Database schema and table structure
+- API endpoint design
+- User roles and permissions (sales_rep, automotive_group, admin)
+- Subscription tiers and feature limits
+- Data relationships and foreign keys
+
+**Key Points:**
+- Dealerships uniquely identified by `website` URL
+- Three user roles: `sales_rep`, `automotive_group`, `admin`
+- Three subscription tiers: Tier 1 (Free), Tier 2 (Pro), Tier 3 (Enterprise)
+- All TypeScript interfaces in `types/index.ts` must align with database schema
+- RLS (Row Level Security) policies enforce territory/ownership access control
+
+**Before implementing any backend feature:**
+1. Check `BACKEND-PLAN.md` for existing schema
+2. Ensure TypeScript types match database types
+3. Follow established API endpoint patterns
+4. Implement proper role-based access control
+
+------------------------------------------------------------------------
+
 ## Teaching Mode Rules
 
 -   Assume I don't know why something works --- always narrate your

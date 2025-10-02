@@ -70,7 +70,7 @@ export interface User {
   id: string;
   email: string;
   name: string;
-  role: 'sales_rep' | 'admin';
+  role: 'sales_rep' | 'admin' | 'automotive_group';
   company?: string;
   territory?: string[];
   preferences: UserPreferences;

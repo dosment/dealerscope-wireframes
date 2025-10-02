@@ -8,7 +8,7 @@ import { mockRecentChanges } from '@/lib/mockData';
 
 interface LayoutProps {
   children: React.ReactNode;
-  userType?: 'sales_rep' | 'admin';
+  userType?: 'sales_rep' | 'admin' | 'automotive_group';
 }
 
 const Layout: React.FC<LayoutProps> = ({ children, userType = 'sales_rep' }) => {

@@ -17,7 +17,7 @@ CREATE TABLE users (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
   email TEXT UNIQUE NOT NULL,
   name TEXT NOT NULL,
-  role TEXT NOT NULL CHECK (role IN ('sales_rep', 'admin')),
+  role TEXT NOT NULL CHECK (role IN ('sales_rep', 'admin', 'automotive_group')),
   company TEXT,
   territory TEXT[], -- Array of state codes or regions
 
@@ -642,6 +642,41 @@ PUT    /api/preferences/digest             - Update email digest settings
 - Admin can override limits manually
 - **No credit card required for Tier 1** - instant signup
 - Grace period when exceeding limits (show warnings before blocking)
+
+---
+
+## 👥 User Roles
+
+### **sales_rep**
+- Individual vendor sales representatives
+- Track dealerships in assigned territory
+- Monitor product changes and opportunities
+- Limited to territory-based access (state/region filtering)
+- Can scan dealers, create reports, receive alerts
+
+### **automotive_group**
+- Automotive dealership groups monitoring their own locations
+- Track their own dealership portfolio
+- Monitor vendor products installed at their locations
+- Same UI/features as sales_rep (for now)
+- Future: Multi-location dashboard, consolidated reporting
+
+### **admin**
+- System administrators
+- Full access to all dealerships and users
+- Manage vendor products and detection rules
+- User management and billing
+- System configuration and monitoring
+
+**Access Control:**
+- `sales_rep`: See only dealerships in their territory
+- `automotive_group`: See only their owned dealerships
+- `admin`: See everything
+
+**RLS Implementation:**
+- Territory-based filtering for sales_rep
+- Ownership-based filtering for automotive_group (future: add owner_id to dealerships)
+- No restrictions for admin
 
 ---
 
