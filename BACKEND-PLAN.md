@@ -600,35 +600,48 @@ PUT    /api/preferences/digest             - Update email digest settings
 
 ## 💳 Subscription Tier Limits
 
-### **Tier 1 (Basic)**
-- Max dealerships: 25
-- Scan frequency: Weekly
-- Alerts: Email only
-- Reports: 5 saved reports
+### **Tier 1 (Free/Trial)**
+- **Price:** Free forever
+- Max dealerships: 10
+- Scan frequency: Manual only (no auto-scans)
+- Alerts: None (must check dashboard manually)
+- Reports: 2 saved reports
 - Users: 1 user
-- Support: Email support
+- Support: Community forum / Knowledge base only
+- Export: View only (no exports)
+- **Purpose:** Trial/freemium tier to evaluate product
 
 ### **Tier 2 (Pro)**
+- **Price:** $XX/month (paid tier)
 - Max dealerships: 100
-- Scan frequency: Daily
-- Alerts: Email + In-app
+- Scan frequency: Daily automated scans
+- Alerts: Email + In-app notifications
 - Reports: 25 saved reports
 - Users: 5 users
-- Support: Priority email + chat
+- Support: Priority email + chat support
+- Export: CSV/Excel exports
+- **Purpose:** Professional users and small teams
 
 ### **Tier 3 (Enterprise)**
+- **Price:** $XXX/month (or custom pricing)
 - Max dealerships: Unlimited
-- Scan frequency: Real-time
-- Alerts: Email + In-app + SMS
-- Reports: Unlimited
+- Scan frequency: Real-time monitoring
+- Alerts: Email + In-app + SMS notifications
+- Reports: Unlimited saved reports
 - Users: Unlimited
-- Support: Dedicated account manager + phone
+- Support: Dedicated account manager + phone support
+- Export: All formats (CSV, Excel, PDF, API access)
+- Custom integrations & white-label options
+- **Purpose:** Large organizations and agencies
 
 **Implementation:**
 - Tier limits enforced at API level
 - `subscription_tier` field in users table (1, 2, or 3)
 - Upgrade prompts shown when limits reached
+- "Upgrade to Pro" CTAs throughout Tier 1 experience
 - Admin can override limits manually
+- **No credit card required for Tier 1** - instant signup
+- Grace period when exceeding limits (show warnings before blocking)
 
 ---
 
