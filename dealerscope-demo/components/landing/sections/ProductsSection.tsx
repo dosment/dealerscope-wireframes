@@ -16,31 +16,31 @@ export default function ProductsSection() {
   const categories: Category[] = [
     {
       icon: MessageCircle,
-      iconClassName: 'text-accent',
+      iconClassName: 'text-[#FF6B35]',
       title: 'Chat Tools',
       products: ['LivePerson', 'Podium', 'Gubagoo', '+ Others'],
     },
     {
       icon: Car,
-      iconClassName: 'text-accent',
+      iconClassName: 'text-[#FF6B35]',
       title: 'Digital Retailing',
       products: ['Roadster', 'AutoFi', 'Upstart', '+ Others'],
     },
     {
       icon: Globe,
-      iconClassName: 'text-accent',
+      iconClassName: 'text-[#FF6B35]',
       title: 'Website Providers',
       products: ['Dealer.com', 'DealerOn', 'Dealer Inspire', '+ Others'],
     },
     {
       icon: CreditCard,
-      iconClassName: 'text-accent',
+      iconClassName: 'text-[#FF6B35]',
       title: 'Finance Apps',
       products: ['RouteOne', 'DealerTrack', '+ Others'],
     },
     {
       icon: RefreshCcw,
-      iconClassName: 'text-accent',
+      iconClassName: 'text-[#FF6B35]',
       title: 'Trade Tools',
       products: ['vAuto', 'AccuTrade', '+ Others'],
     },
@@ -53,7 +53,7 @@ export default function ProductsSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Comprehensive Coverage Across{' '}
-            <span className="text-[#00A896]">Five Product Categories</span>
+            <span className="text-[#FF6B35]">Five Product Categories</span>
           </h2>
         </div>
 

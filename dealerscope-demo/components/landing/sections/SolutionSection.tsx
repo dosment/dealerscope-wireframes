@@ -80,14 +80,14 @@ export default function SolutionSection() {
           <div className="order-1 lg:order-2">
             <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-6">
               Own Your Territory.{' '}
-              <span className="text-[#00A896]">Outsmart Your Competition.</span>
+              <span className="text-[#FF6B35]">Outsmart Your Competition.</span>
             </h2>
 
             <div className="space-y-4 mb-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-start space-x-3">
                   <svg
-                    className="w-6 h-6 text-accent flex-shrink-0 mt-0.5"
+                    className="w-6 h-6 text-[#FF6B35] flex-shrink-0 mt-0.5"
                     fill="none"
                     stroke="currentColor"
                     viewBox="0 0 24 24"
@@ -105,12 +105,12 @@ export default function SolutionSection() {
             </div>
 
             {/* Stat Callout */}
-            <div className="bg-secondary border border-accent/20 rounded-xl p-6">
+            <div className="bg-secondary border border-orange-200 rounded-xl p-6">
               <div className="text-sm text-hero mb-1">Average Response Time</div>
               <div className="text-3xl font-bold text-primary">
                 2.4 Hours
               </div>
-              <div className="text-sm text-accent mt-1">
+              <div className="text-sm text-[#FF6B35] mt-1">
                 From change detection to your outreach
               </div>
             </div>

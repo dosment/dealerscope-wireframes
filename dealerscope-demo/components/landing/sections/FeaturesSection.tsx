@@ -46,7 +46,7 @@ export default function FeaturesSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Everything You Need to{' '}
-            <span className="text-[#00A896]">Dominate Your Market</span>
+            <span className="text-[#FF6B35]">Dominate Your Market</span>
           </h2>
         </div>
 
@@ -57,9 +57,9 @@ export default function FeaturesSection() {
             return (
               <div
                 key={index}
-                className="bg-elevated border border-primary rounded-xl p-6 hover:shadow-lg hover:border-accent/30 transition-all duration-200"
+                className="bg-elevated border border-primary rounded-xl p-6 hover:shadow-lg hover:border-orange-300 transition-all duration-200"
               >
-                <div className="w-14 h-14 bg-accent/10 rounded-xl flex items-center justify-center text-accent mb-4">
+                <div className="w-14 h-14 bg-orange-50 rounded-xl flex items-center justify-center text-[#FF6B35] mb-4">
                   <Icon className="w-8 h-8" strokeWidth={1.5} />
                 </div>
                 <h3 className="font-brand text-lg font-semibold text-hero mb-3">

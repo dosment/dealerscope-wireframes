@@ -68,7 +68,7 @@ export default function FAQSection() {
               >
                 <span className="font-semibold text-hero pr-8">{faq.question}</span>
                 <svg
-                  className={`w-5 h-5 text-accent flex-shrink-0 transition-transform ${
+                  className={`w-5 h-5 text-[#FF6B35] flex-shrink-0 transition-transform ${
                     openIndex === index ? 'rotate-180' : ''
                   }`}
                   fill="none"

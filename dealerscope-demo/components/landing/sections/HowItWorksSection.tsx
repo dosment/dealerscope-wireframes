@@ -34,7 +34,7 @@ export default function HowItWorksSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Three Steps to{' '}
-            <span className="text-[#00A896]">Territory Domination</span>
+            <span className="text-[#FF6B35]">Territory Domination</span>
           </h2>
         </div>
 
@@ -46,18 +46,18 @@ export default function HowItWorksSection() {
               <div key={index} className="relative">
                 {/* Connector Line (desktop only) */}
                 {index < steps.length - 1 && (
-                  <div className="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-accent/20 -z-10" />
+                  <div className="hidden md:block absolute top-16 left-1/2 w-full h-0.5 bg-orange-200 -z-10" />
                 )}
 
-                <div className="bg-elevated border border-primary rounded-xl p-8 text-center hover:shadow-lg hover:border-accent/30 transition-all duration-200">
+                <div className="bg-elevated border border-primary rounded-xl p-8 text-center hover:shadow-lg hover:border-orange-300 transition-all duration-200">
                   {/* Step Number Circle */}
-                  <div className="w-16 h-16 bg-accent text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 relative z-10">
+                  <div className="w-16 h-16 bg-[#FF6B35] text-white rounded-full flex items-center justify-center text-2xl font-bold mx-auto mb-6 relative z-10">
                     {step.number}
                   </div>
 
                   {/* Icon */}
                   <div className="flex justify-center mb-4">
-                    <Icon className="w-10 h-10 text-accent" strokeWidth={1.5} />
+                    <Icon className="w-10 h-10 text-[#FF6B35]" strokeWidth={1.5} />
                   </div>
 
                   {/* Title */}

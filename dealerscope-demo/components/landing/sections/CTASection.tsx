@@ -13,6 +13,12 @@ export default function CTASection() {
       <div className="max-w-5xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">
+          <div className="inline-flex items-center space-x-2 bg-orange-100 border-2 border-orange-500 rounded-full px-4 py-2 mb-6">
+            <span className="w-2 h-2 bg-orange-500 rounded-full animate-pulse" />
+            <span className="text-sm font-bold text-orange-600 uppercase tracking-wide">
+              Limited Spots Available
+            </span>
+          </div>
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-white mb-4">
             Be First in Line When We Launch
           </h2>

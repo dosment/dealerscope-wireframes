@@ -47,7 +47,7 @@ export default function SocialProofSection() {
         <div className="text-center mb-16">
           <h2 className="font-brand text-3xl lg:text-5xl font-bold text-hero mb-4">
             Be Among the First to{' '}
-            <span className="text-[#00A896]">Access DealerScope</span>
+            <span className="text-[#FF6B35]">Access DealerScope</span>
           </h2>
         </div>
 
@@ -55,7 +55,7 @@ export default function SocialProofSection() {
         <div className="grid md:grid-cols-3 gap-8 mb-16">
           {stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-4xl lg:text-5xl font-bold text-accent mb-2">
+              <div className="text-4xl lg:text-5xl font-bold text-[#FF6B35] mb-2">
                 {stat.value}
               </div>
               <div className="text-sm text-muted uppercase tracking-wide">
@@ -73,7 +73,7 @@ export default function SocialProofSection() {
               className="bg-elevated border border-primary rounded-xl p-6"
             >
               <div className="mb-4">
-                <span className="inline-block bg-accent/10 text-accent text-xs font-semibold px-3 py-1 rounded-full">
+                <span className="inline-block bg-orange-50 text-[#FF6B35] text-xs font-semibold px-3 py-1 rounded-full">
                   {testimonial.badge}
                 </span>
               </div>
