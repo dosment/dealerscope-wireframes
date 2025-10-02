@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
+import { ArrowRight, CheckCircle } from 'lucide-react';
 
 /**
  * Hero Section - Landing Page
@@ -11,12 +12,13 @@ import Link from 'next/link';
  */
 export default function HeroSection() {
   return (
-    <section className="relative bg-navy-900 text-white overflow-hidden">
-      {/* Background Image with Overlay */}
+    <section className="relative bg-gradient-to-br from-primary via-secondary to-primary text-white overflow-hidden">
+      {/* Background Pattern Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-800/95 to-navy-900/90 z-10" />
-        {/* Placeholder for dealership image - you can add your own */}
-        <div className="absolute inset-0 bg-navy-800" />
+        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-secondary/90 to-primary/95 z-10" />
+        <div className="absolute inset-0 opacity-5">
+          <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
+        </div>
       </div>
 
       {/* Content */}
@@ -33,7 +35,7 @@ export default function HeroSection() {
           {/* Main Headline */}
           <h1 className="font-brand text-4xl lg:text-6xl font-bold mb-6 leading-tight">
             Dominate Your Territory With{' '}
-            <span className="text-teal-400">Real-Time Dealership Intelligence</span>
+            <span className="text-accent">Real-Time Dealership Intelligence</span>
           </h1>
 
           {/* Subheadline */}
@@ -47,27 +49,23 @@ export default function HeroSection() {
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
             <a
               href="#get-started"
-              className="inline-flex items-center justify-center px-8 py-4 bg-teal-600 hover:bg-teal-700 text-white font-semibold rounded-lg transition-colors shadow-lg"
+              className="inline-flex items-center justify-center px-8 py-4 bg-accent hover:bg-accent/90 text-white font-semibold rounded-xl transition-all duration-200 shadow-lg hover:shadow-xl hover:-translate-y-0.5"
             >
               Join the Waitlist
-              <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
+              <ArrowRight className="w-5 h-5 ml-2" strokeWidth={2} />
             </a>
 
             <a
               href="#how-it-works"
-              className="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white font-semibold rounded-lg border-2 border-white/30 transition-colors"
+              className="inline-flex items-center justify-center px-8 py-4 bg-transparent hover:bg-white/10 text-white font-semibold rounded-xl border-2 border-white/30 hover:border-white/50 transition-all duration-200"
             >
               Learn More
             </a>
           </div>
 
           {/* Trust Badge */}
-          <div className="flex items-center space-x-2 text-slate-400">
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
+          <div className="flex items-center space-x-2 text-slate-300">
+            <CheckCircle className="w-5 h-5 text-success" strokeWidth={2} />
             <span className="text-sm">
               Monitoring <span className="text-white font-semibold">10,000+ dealerships</span> across North America
             </span>
