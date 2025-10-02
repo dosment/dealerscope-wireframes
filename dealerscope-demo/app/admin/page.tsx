@@ -81,9 +81,16 @@ export default function AdminPage() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
                           <div className="w-3 h-3 bg-success rounded-full"></div>
-                          <span className="text-sm text-tertiary">API Services</span>
+                          <span className="text-sm text-tertiary">Supabase API</span>
                         </div>
                         <span className="text-sm font-medium text-hero">Operational</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-3 h-3 bg-success rounded-full"></div>
+                          <span className="text-sm text-tertiary">Database</span>
+                        </div>
+                        <span className="text-sm font-medium text-hero">Healthy</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
@@ -95,9 +102,23 @@ export default function AdminPage() {
                       <div className="flex items-center justify-between">
                         <div className="flex items-center space-x-3">
                           <div className="w-3 h-3 bg-success rounded-full"></div>
-                          <span className="text-sm text-tertiary">Database</span>
+                          <span className="text-sm text-tertiary">Stripe</span>
                         </div>
-                        <span className="text-sm font-medium text-hero">Healthy</span>
+                        <span className="text-sm font-medium text-hero">Connected</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-3 h-3 bg-success rounded-full"></div>
+                          <span className="text-sm text-tertiary">Email Service</span>
+                        </div>
+                        <span className="text-sm font-medium text-hero">Active</span>
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex items-center space-x-3">
+                          <div className="w-3 h-3 bg-success rounded-full"></div>
+                          <span className="text-sm text-tertiary">Background Jobs</span>
+                        </div>
+                        <span className="text-sm font-medium text-hero">Running</span>
                       </div>
                     </div>
                   </div>
