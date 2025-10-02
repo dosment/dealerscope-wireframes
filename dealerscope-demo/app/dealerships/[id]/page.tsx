@@ -69,7 +69,7 @@ export default function DealershipDetailPage() {
           </button>
 
           {/* Header Section */}
-          <div className="bg-elevated border border-primary rounded-lg p-6">
+          <div className="bg-elevated border border-primary rounded-xl p-6">
             <div className="flex items-start justify-between">
               <div className="flex-1">
                 <div className="flex items-center space-x-4 mb-2">
@@ -85,7 +85,7 @@ export default function DealershipDetailPage() {
                       href={`https://${dealership.website}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="ml-2 text-blue-600 hover:text-blue-800"
+                      className="ml-2 text-accent hover:text-hero transition-colors duration-200"
                     >
                       {dealership.website}
                     </a>
@@ -114,15 +114,15 @@ export default function DealershipDetailPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {/* Current Products */}
-            <div className="bg-elevated border border-primary rounded-lg p-6">
+            <div className="bg-elevated border border-primary rounded-xl p-6">
               <h2 className="text-lg font-medium text-hero mb-4">Current Products</h2>
               {dealership.currentProducts.length > 0 ? (
                 <div className="space-y-3">
                   {dealership.currentProducts.map((product, index) => (
-                    <div key={index} className="border border-primary rounded-lg p-4">
+                    <div key={index} className="border border-primary rounded-xl p-4">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-medium text-hero">{product.name}</h3>
-                        <span className="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded">
+                        <span className="text-xs px-2 py-1 bg-accent/10 text-accent rounded-full">
                           {product.category}
                         </span>
                       </div>
@@ -138,12 +138,12 @@ export default function DealershipDetailPage() {
             </div>
 
             {/* Previous Products */}
-            <div className="bg-elevated border border-primary rounded-lg p-6">
+            <div className="bg-elevated border border-primary rounded-xl p-6">
               <h2 className="text-lg font-medium text-hero mb-4">Previous Products</h2>
               {dealership.previousProducts.length > 0 ? (
                 <div className="space-y-3">
                   {dealership.previousProducts.map((product, index) => (
-                    <div key={index} className="border border-primary rounded-lg p-4 opacity-75">
+                    <div key={index} className="border border-primary rounded-xl p-4 opacity-75">
                       <div className="flex items-center justify-between mb-2">
                         <h3 className="font-medium text-hero">{product.name}</h3>
                         <span className="text-xs px-2 py-1 bg-tertiary text-primary rounded">
@@ -163,13 +163,13 @@ export default function DealershipDetailPage() {
           </div>
 
           {/* Scan History */}
-          <div className="bg-elevated border border-primary rounded-lg p-6">
+          <div className="bg-elevated border border-primary rounded-xl p-6">
             <h2 className="text-lg font-medium text-hero mb-4">Scan History</h2>
             <div className="space-y-3">
               {dealership.scanHistory.map((scan, index) => (
                 <div
                   key={index}
-                  className="border border-primary rounded-lg p-4 flex items-start justify-between"
+                  className="border border-primary rounded-xl p-4 flex items-start justify-between"
                 >
                   <div className="flex-1">
                     <div className="flex items-center space-x-3 mb-2">
@@ -190,7 +190,7 @@ export default function DealershipDetailPage() {
           </div>
 
           {/* Actions Section */}
-          <div className="bg-elevated border border-primary rounded-lg p-6">
+          <div className="bg-elevated border border-primary rounded-xl p-6">
             <h2 className="text-lg font-medium text-hero mb-4">Actions</h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <Button variant="secondary" fullWidth>
