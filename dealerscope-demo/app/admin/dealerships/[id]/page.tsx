@@ -5,7 +5,7 @@ import { useParams, useRouter } from 'next/navigation';
 import Layout from '@/components/ui/Layout';
 import Button from '@/components/ui/Button';
 import StatusBadge from '@/components/ui/StatusBadge';
-import { ChevronLeft, Globe, Phone, MapPin, Building2, Calendar, Activity, AlertTriangle, Save, Trash2 } from 'lucide-react';
+import { ChevronLeft, Globe, Phone, MapPin, Building2, Calendar, Activity, AlertTriangle, Save, Trash2, TrendingUp, TrendingDown, CheckCircle, ExternalLink } from 'lucide-react';
 
 export default function AdminDealershipDetailPage() {
   const params = useParams();
@@ -35,6 +35,49 @@ export default function AdminDealershipDetailPage() {
 
   const [isEditing, setIsEditing] = useState(false);
   const [isSaving, setIsSaving] = useState(false);
+
+  // Mock scan history data
+  const scanHistory = [
+    {
+      id: '1',
+      date: 'Jan 20, 2025 2:30 PM',
+      status: 'completed',
+      productsFound: 5,
+      changes: [
+        { type: 'added', product: 'TrueCar', category: 'Lead Generation' },
+        { type: 'added', product: 'CarGurus', category: 'Lead Generation' }
+      ]
+    },
+    {
+      id: '2',
+      date: 'Jan 19, 2025 10:15 AM',
+      status: 'completed',
+      productsFound: 3,
+      changes: [
+        { type: 'removed', product: 'AutoTrader', category: 'Inventory' }
+      ]
+    },
+    {
+      id: '3',
+      date: 'Jan 18, 2025 3:45 PM',
+      status: 'completed',
+      productsFound: 4,
+      changes: []
+    },
+    {
+      id: '4',
+      date: 'Jan 17, 2025 9:00 AM',
+      status: 'completed',
+      productsFound: 4,
+      changes: []
+    }
+  ];
+
+  const assignedUsers = [
+    { id: '1', name: 'John Doe', role: 'Sales Rep', tier: 'Tier 3' },
+    { id: '2', name: 'Sarah Miller', role: 'Sales Rep', tier: 'Tier 2' },
+    { id: '3', name: 'Mike Johnson', role: 'Automotive Group', tier: 'Tier 2' }
+  ];
 
   const handleSave = async () => {
     setIsSaving(true);
@@ -314,6 +357,56 @@ export default function AdminDealershipDetailPage() {
                   </div>
                 </div>
               </div>
+
+              {/* Scan History */}
+              <div className="bg-elevated border border-primary rounded-xl p-6">
+                <h2 className="text-lg font-medium text-hero mb-6">Scan History</h2>
+                <div className="space-y-4">
+                  {scanHistory.map((scan) => (
+                    <div key={scan.id} className="border border-primary rounded-lg p-4 hover:border-hover transition-colors duration-200">
+                      <div className="flex items-start justify-between mb-3">
+                        <div className="flex items-center gap-3">
+                          <CheckCircle className="w-5 h-5 text-success flex-shrink-0" strokeWidth={1.5} />
+                          <div>
+                            <p className="text-sm font-medium text-hero">{scan.date}</p>
+                            <p className="text-xs text-muted mt-0.5">{scan.productsFound} products detected</p>
+                          </div>
+                        </div>
+                        <span className="text-xs text-success bg-success-soft px-2 py-1 rounded-full">Completed</span>
+                      </div>
+
+                      {scan.changes.length > 0 && (
+                        <div className="mt-3 pt-3 border-t border-primary space-y-2">
+                          <p className="text-xs font-medium text-tertiary mb-2">Product Changes:</p>
+                          {scan.changes.map((change, idx) => (
+                            <div key={idx} className="flex items-center gap-2">
+                              {change.type === 'added' ? (
+                                <>
+                                  <TrendingUp className="w-4 h-4 text-success" strokeWidth={1.5} />
+                                  <span className="text-xs text-success font-medium">Added:</span>
+                                </>
+                              ) : (
+                                <>
+                                  <TrendingDown className="w-4 h-4 text-danger-600" strokeWidth={1.5} />
+                                  <span className="text-xs text-danger-600 font-medium">Removed:</span>
+                                </>
+                              )}
+                              <span className="text-xs text-hero">{change.product}</span>
+                              <span className="text-xs text-muted">({change.category})</span>
+                            </div>
+                          ))}
+                        </div>
+                      )}
+
+                      {scan.changes.length === 0 && (
+                        <div className="mt-3 pt-3 border-t border-primary">
+                          <p className="text-xs text-muted">No product changes detected</p>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              </div>
             </div>
 
             {/* Right Column - Activity & Notes */}
@@ -336,24 +429,19 @@ export default function AdminDealershipDetailPage() {
               <div className="bg-elevated border border-primary rounded-xl p-6">
                 <h2 className="text-lg font-medium text-hero mb-4">Assigned Users</h2>
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between p-3 bg-secondary rounded-lg border border-primary">
-                    <div>
-                      <p className="text-sm font-medium text-hero">John Doe</p>
-                      <p className="text-xs text-muted">Sales Rep - Tier 3</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-secondary rounded-lg border border-primary">
-                    <div>
-                      <p className="text-sm font-medium text-hero">Sarah Miller</p>
-                      <p className="text-xs text-muted">Sales Rep - Tier 2</p>
-                    </div>
-                  </div>
-                  <div className="flex items-center justify-between p-3 bg-secondary rounded-lg border border-primary">
-                    <div>
-                      <p className="text-sm font-medium text-hero">Mike Johnson</p>
-                      <p className="text-xs text-muted">Automotive Group - Tier 2</p>
-                    </div>
-                  </div>
+                  {assignedUsers.map((user) => (
+                    <button
+                      key={user.id}
+                      onClick={() => router.push(`/admin/users/${user.id}`)}
+                      className="w-full flex items-center justify-between p-3 bg-secondary rounded-lg border border-primary hover:border-hover hover:bg-accent/5 transition-all duration-200 group"
+                    >
+                      <div className="text-left">
+                        <p className="text-sm font-medium text-hero group-hover:text-accent transition-colors duration-200">{user.name}</p>
+                        <p className="text-xs text-muted">{user.role} - {user.tier}</p>
+                      </div>
+                      <ExternalLink className="w-4 h-4 text-muted group-hover:text-accent transition-colors duration-200" strokeWidth={1.5} />
+                    </button>
+                  ))}
                 </div>
               </div>
 

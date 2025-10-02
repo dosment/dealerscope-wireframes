@@ -36,7 +36,7 @@ const Button: React.FC<ButtonProps> = ({
     secondary: 'action-secondary',
     tertiary: 'bg-elevated text-primary border border-primary hover:border-hover hover:elevation-2 hover:bg-secondary/20',
     ghost: 'bg-transparent text-secondary hover:bg-secondary/30 hover:text-primary border border-transparent',
-    danger: 'bg-danger-600 text-white hover:bg-danger-700 elevation-2 hover:shadow-lg'
+    danger: 'bg-danger-600 text-white hover:bg-danger-700 shadow-sm hover:shadow-md'
   };
 
   const sizeClasses = {
