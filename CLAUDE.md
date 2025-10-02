@@ -205,6 +205,31 @@ Any code containing emoji characters will be immediately rejected.
 
 ------------------------------------------------------------------------
 
+## Payment Integration Reference
+
+**CRITICAL:** Always refer to `STRIPE-PLAN.md` when implementing payment features:
+- Stripe product and price configuration
+- Subscription tier pricing and billing cycles
+- Webhook implementation for subscription events
+- Customer portal integration
+- Payment failure handling and retry logic
+
+**Key Points:**
+- Tier 1 (Free) requires no Stripe subscription
+- Tier 2 and Tier 3 use Stripe Checkout for payment collection
+- Webhooks sync subscription status to database
+- Annual billing provides discount incentive
+- Customer Portal handles self-service billing management
+
+**Before implementing any payment feature:**
+1. Check `STRIPE-PLAN.md` for subscription flow
+2. Ensure webhook handlers cover all events
+3. Test with Stripe test mode and test cards
+4. Verify webhook signature security
+5. Implement proper upgrade/downgrade logic
+
+------------------------------------------------------------------------
+
 ## Teaching Mode Rules
 
 -   Assume I don't know why something works --- always narrate your
