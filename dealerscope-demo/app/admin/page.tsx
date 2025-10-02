@@ -54,19 +54,19 @@ export default function AdminPage() {
                   <div className="bg-elevated shadow-sm rounded-lg p-6 border border-transparent">
                     <h2 className="text-lg font-medium text-hero mb-4">Quick Actions</h2>
                     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-                      <button className="flex items-center justify-center px-4 py-3 bg-accent/10 text-accent rounded-xl hover:bg-accent/20 transition-all duration-200">
+                      <button className="flex items-center justify-center px-4 py-3 text-sm font-medium bg-accent/10 text-accent rounded-xl hover:bg-accent/20 transition-all duration-200">
                         <UserPlus className="w-5 h-5 mr-2" strokeWidth={1.5} />
                         Add User
                       </button>
-                      <button className="flex items-center justify-center px-4 py-3 bg-accent/10 text-accent rounded-xl hover:bg-accent/20 transition-all duration-200">
+                      <button className="flex items-center justify-center px-4 py-3 text-sm font-medium bg-accent/10 text-accent rounded-xl hover:bg-accent/20 transition-all duration-200">
                         <Building2 className="w-5 h-5 mr-2" strokeWidth={1.5} />
                         Add Dealership
                       </button>
-                      <button className="flex items-center justify-center px-4 py-3 bg-danger-soft text-danger-600 rounded-xl hover:bg-danger-soft/70 transition-all duration-200">
+                      <button className="flex items-center justify-center px-4 py-3 text-sm font-medium bg-danger-600/10 text-danger-600 rounded-xl hover:bg-danger-600/20 transition-all duration-200">
                         <AlertCircle className="w-5 h-5 mr-2" strokeWidth={1.5} />
                         Failed Payments
                       </button>
-                      <button className="flex items-center justify-center px-4 py-3 bg-success-soft text-success rounded-xl hover:bg-success-soft/70 transition-all duration-200">
+                      <button className="flex items-center justify-center px-4 py-3 text-sm font-medium bg-success/10 text-success rounded-xl hover:bg-success/20 transition-all duration-200">
                         <Package className="w-5 h-5 mr-2" strokeWidth={1.5} />
                         Manage Vendors
                       </button>
