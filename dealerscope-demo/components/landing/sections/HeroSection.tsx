@@ -73,11 +73,11 @@ export default function HeroSection() {
         </div>
 
         {/* Dashboard Preview - Placeholder */}
-        <div className="mt-16 lg:absolute lg:right-0 lg:top-1/2 lg:-translate-y-1/2 lg:w-1/2">
-          <div className="bg-slate-800/50 backdrop-blur rounded-lg border border-slate-700 p-6">
+        <div className="mt-16 max-w-2xl">
+          <div className="bg-slate-800/50 backdrop-blur rounded-xl border border-slate-700 p-6">
             <div className="space-y-4">
               {/* Mock Alert 1 */}
-              <div className="bg-danger-500/10 border border-danger-500/30 rounded-lg p-4">
+              <div className="bg-danger-500/10 border border-danger-500/30 rounded-xl p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
@@ -92,7 +92,7 @@ export default function HeroSection() {
               </div>
 
               {/* Mock Alert 2 */}
-              <div className="bg-warning-500/10 border border-warning-500/30 rounded-lg p-4">
+              <div className="bg-warning-500/10 border border-warning-500/30 rounded-xl p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
@@ -107,7 +107,7 @@ export default function HeroSection() {
               </div>
 
               {/* Mock Alert 3 */}
-              <div className="bg-info-500/10 border border-info-500/30 rounded-lg p-4">
+              <div className="bg-info-500/10 border border-info-500/30 rounded-xl p-4">
                 <div className="flex items-start justify-between">
                   <div className="flex-1">
                     <div className="flex items-center space-x-2 mb-2">
