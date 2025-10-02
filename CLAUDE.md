@@ -95,10 +95,6 @@ developer) understand what's happening.
 
 ## Project-Specific Design & Coding Standards
 
-### DealerScope-Specific Requirements
-
-- For dashboard design, refer to the guidelines in `BESTPRACTICES.md`. This file contains the single source of truth for information hierarchy, navigation, component design, and more.
-
 ### **React/Next.js Architecture Standards**
 
 **Framework Requirements:**
@@ -178,6 +174,134 @@ Any code containing emoji characters will be immediately rejected.
 - Configure Git: `git config core.autocrlf true`
 - VS Code setting: `"files.eol": "\r\n"`
 - Ensure consistent CRLF across all files
+
+------------------------------------------------------------------------
+
+## Design Philosophy & Visual Standards
+
+**CRITICAL:** Always refer to `DESIGN-AUDIT-CHECKLIST.md` for the complete design system reference. ALL new pages, components, and features MUST follow the Swiss luxury spa aesthetic established in the design system.
+
+### **Mandatory Design System Compliance**
+
+Every page and component created MUST use:
+
+**Colors:**
+- **Primary Interactive**: `text-accent` with `hover:text-hero`
+- **Headings**: `text-hero`
+- **Body Text**: `text-primary`, `text-secondary`, `text-tertiary` hierarchy
+- **Backgrounds**: `bg-elevated`, `bg-secondary`
+- **Borders**: `border-primary`, `border-secondary`, `border-hover`
+- **Status Colors**: `text-success`, `text-warning`, `text-danger`, `text-info`
+- **Soft Backgrounds**: `bg-success-soft`, `bg-warning-soft`, `bg-danger-soft`, `bg-info-soft`
+
+**ABSOLUTELY FORBIDDEN:**
+- ❌ NO `blue-*` colors anywhere (bg-blue-, text-blue-, border-blue-, ring-blue-)
+- ❌ NO `green-*`, `red-*`, `yellow-*`, `purple-*` hardcoded colors
+- ❌ NO `gray-*` colors (use tertiary/muted/disabled from design system)
+
+**Rounded Corners:**
+- **Cards & Containers**: `rounded-xl`
+- **Buttons**: `rounded-xl`
+- **Form Inputs**: `rounded-xl` (consistent with buttons)
+- **Badges & Pills**: `rounded-full` for pill shapes
+- ❌ NEVER use `rounded-md` or `rounded-lg` (except legacy exceptions)
+
+**Icons:**
+- **ONLY Lucide-React**: Import from 'lucide-react' package
+- **Stroke Width**: `strokeWidth={1.5}` or `{2}` for consistency
+- **Icon Colors**: Use design system colors (text-accent, text-hero, etc.)
+- ❌ NO inline SVG `<svg>...</svg>`
+- ❌ NO emoji characters
+
+**Buttons:**
+- **ALWAYS use Button component**: `<Button variant="..." />`
+- **Variants**: primary, secondary, tertiary, ghost, danger
+- **Button Usage**:
+  - Primary actions: `variant="primary"`
+  - Secondary actions: `variant="secondary"`
+  - Cancel/Dismiss: `variant="tertiary"`
+  - Delete/Remove: `variant="danger"`
+  - Subtle actions: `variant="ghost"`
+- ❌ NO inline `<button className="bg-blue-600...">`
+
+**Interactive States:**
+- **Transitions**: `transition-all duration-200` on all interactive elements
+- **Focus Rings**: `focus:ring-accent focus:ring-2`
+- **Hover States**: `hover:bg-accent/20`, `hover:text-hero`, `hover:border-hover`
+- ❌ NO `focus:ring-blue-500`
+
+**Form Elements:**
+- **Checkboxes**: `text-accent focus:ring-accent`
+- **Inputs/Selects**: Full design system styling with `border-primary rounded-xl px-4 py-3 text-sm focus:ring-accent bg-elevated text-primary font-medium`
+
+**Typography:**
+- **Headings**: `text-2xl font-semibold text-hero tracking-tight`
+- **Subheadings**: `text-lg font-medium text-hero`
+- **Body**: `text-sm text-secondary`
+- **Muted**: `text-xs text-muted`
+- **Font Weights**: font-semibold (600), font-medium (500)
+- **Letter Spacing**: tracking-tight for headings, tracking-wide for buttons
+
+**Tier System Naming:**
+- ✅ "Tier 1" (Free/Trial)
+- ✅ "Tier 2" (Pro)
+- ✅ "Tier 3" (Enterprise)
+- ❌ NO "Enterprise", "Professional", "Starter" without tier number
+
+### **Design System Enforcement**
+
+**Before Creating ANY New Page:**
+1. Review `DESIGN-AUDIT-CHECKLIST.md` for all standards
+2. Import necessary Lucide icons
+3. Use Button component for all buttons
+4. Apply design system colors exclusively
+5. Use `rounded-xl` for all corners
+6. Add `transition-all duration-200` to interactive elements
+7. Test focus states use `focus:ring-accent`
+
+**Code Review Rejection Criteria:**
+- Any use of `blue-*` colors
+- Inline SVG or emoji icons
+- Inline buttons without Button component
+- Wrong rounded corners (rounded-md, rounded-lg on cards)
+- Missing transitions on interactive elements
+- Hardcoded green/red/yellow/purple colors
+
+**Quick Reference for Common Patterns:**
+
+```tsx
+// ✅ CORRECT - Link with design system
+<a href="..." className="text-accent hover:text-hero transition-colors duration-200">
+  Link Text
+</a>
+
+// ✅ CORRECT - Status badge
+<span className="px-2 py-1 bg-success-soft text-success rounded-full text-xs font-semibold">
+  Active
+</span>
+
+// ✅ CORRECT - Card with proper styling
+<div className="bg-elevated border border-primary rounded-xl p-6 hover:border-hover transition-all duration-200">
+  Content
+</div>
+
+// ✅ CORRECT - Button with icon
+import { Save } from 'lucide-react';
+<Button variant="primary">
+  <Save className="w-4 h-4 mr-2" strokeWidth={2} />
+  Save Changes
+</Button>
+
+// ❌ WRONG - Blue colors
+<button className="bg-blue-600 text-white">Submit</button>
+<a className="text-blue-600 hover:text-blue-800">Link</a>
+
+// ❌ WRONG - Inline SVG
+<svg className="w-5 h-5"><path d="..." /></svg>
+
+// ❌ WRONG - Wrong corners
+<div className="rounded-md p-4">Content</div>
+```
 
 ------------------------------------------------------------------------
 

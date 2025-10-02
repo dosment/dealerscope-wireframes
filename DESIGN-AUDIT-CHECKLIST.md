@@ -190,3 +190,32 @@ This checklist ensures EVERY page follows the Swiss luxury spa aesthetic with:
 - Lucide icons only
 - Smooth transitions
 - Proper button variants
+
+---
+
+## IMPORTANT: New Pages Must Follow Design System
+
+**ALL NEW PAGES, COMPONENTS, AND FEATURES MUST FOLLOW THE DESIGN SYSTEM FROM DAY ONE.**
+
+This checklist documents the design system used throughout DealerScope. When creating new pages:
+
+1. **Review this entire checklist BEFORE writing code**
+2. **Reference `CLAUDE.md` Design Philosophy section for complete standards**
+3. **Use only approved colors, components, and patterns from this guide**
+4. **Test your page against the audit checklist before committing**
+
+**Completed Audit Summary:**
+- ✅ 16 of 17 main pages are fully design-compliant
+- ✅ All user-facing pages follow Swiss luxury spa aesthetic
+- ⚠️ Only admin vendor detail sub-components remain (low priority)
+
+**Systematic Fixes Applied (January 2025):**
+- Replaced all hardcoded blue/green/red/yellow/purple colors with design system tokens
+- Changed rounded-md/rounded-lg to rounded-xl throughout
+- Updated all focus rings from blue-500 to accent
+- Converted status badges to use success-soft/warning-soft/danger-soft patterns
+- Fixed table dividers from divide-gray-200 to divide-primary
+- Standardized all form inputs with consistent design system styling
+
+**Design system is now the source of truth - no exceptions for new code.**
+
