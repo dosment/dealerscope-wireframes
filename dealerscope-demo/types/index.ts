@@ -5,17 +5,41 @@ export interface Dealership {
   name: string;
   location: string;
   address?: string;
+  city?: string;
   zipCode: string;
   state: string;
+
+  // UNIQUE IDENTIFIER: Website URL is the primary unique constraint
+  website: string; // Required and unique (e.g., "millerhonda.com")
+  websiteNormalized?: string; // Auto-generated normalized version
+
+  oem?: string; // Original Equipment Manufacturer (Honda, Toyota, etc.)
+  phone?: string;
   trackedProducts: string[];
   lastChange: Date;
   status: DealershipStatus;
-  website?: string;
   notes?: string;
   priority?: 'high' | 'medium' | 'low';
+
+  // Merge tracking
+  mergedIntoId?: string; // If this dealership was merged into another
+  mergedAt?: Date;
+
+  lastScanAt?: Date;
+  createdAt?: Date;
+  updatedAt?: Date;
 }
 
-export type DealershipStatus = 'active' | 'changed' | 'opportunity' | 'scanning' | 'error' | 'stable';
+export type DealershipStatus =
+  | 'active'
+  | 'changed'
+  | 'opportunity'
+  | 'scanning'
+  | 'error'
+  | 'stable'
+  | 'duplicate'      // Flagged as potential duplicate
+  | 'pending_merge'  // Scheduled for merge
+  | 'inactive';      // Merged or deactivated
 
 export interface ProductChange {
   id: string;

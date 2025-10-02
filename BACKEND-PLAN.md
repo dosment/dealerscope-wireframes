@@ -58,6 +58,9 @@ CREATE TABLE user_preferences (
 ### **3. dealerships**
 Core dealership data and monitoring information.
 
+**IMPORTANT:** Each dealership is uniquely identified by its **website URL** (normalized).
+This ensures no duplicate tracking and enables proper merging.
+
 ```sql
 CREATE TABLE dealerships (
   id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -67,21 +70,41 @@ CREATE TABLE dealerships (
   state TEXT NOT NULL,
   zip_code TEXT NOT NULL,
   location GEOGRAPHY(POINT, 4326), -- For geo-queries (lat/lng)
-  website TEXT,
+
+  -- UNIQUE IDENTIFIER: Website URL (normalized, e.g., 'millerhonda.com')
+  website TEXT UNIQUE NOT NULL,
+  website_normalized TEXT GENERATED ALWAYS AS (
+    LOWER(REGEXP_REPLACE(website, '^(https?://)?(www\.)?', ''))
+  ) STORED,
+
   phone TEXT,
-  status TEXT NOT NULL DEFAULT 'stable' CHECK (status IN ('active', 'changed', 'opportunity', 'scanning', 'error', 'stable')),
+  oem TEXT, -- Original Equipment Manufacturer (Honda, Toyota, etc.)
+
+  status TEXT NOT NULL DEFAULT 'stable' CHECK (status IN (
+    'active', 'changed', 'opportunity', 'scanning', 'error', 'stable',
+    'duplicate', 'pending_merge', 'inactive'
+  )),
   priority TEXT CHECK (priority IN ('high', 'medium', 'low')),
   notes TEXT,
+
+  -- Merge tracking
+  merged_into_id UUID REFERENCES dealerships(id) ON DELETE SET NULL,
+  merged_at TIMESTAMPTZ,
+
   last_scan_at TIMESTAMPTZ,
   last_change_at TIMESTAMPTZ,
   created_at TIMESTAMPTZ DEFAULT NOW(),
   updated_at TIMESTAMPTZ DEFAULT NOW(),
 
   -- Indexing for performance
+  INDEX idx_dealerships_website (website_normalized),
   INDEX idx_dealerships_state (state),
   INDEX idx_dealerships_zip (zip_code),
   INDEX idx_dealerships_status (status),
-  INDEX idx_dealerships_location USING GIST (location)
+  INDEX idx_dealerships_location USING GIST (location),
+
+  -- Constraint: website must be unique (case-insensitive)
+  CONSTRAINT unique_normalized_website UNIQUE (website_normalized)
 );
 
 -- RLS Policies
@@ -287,7 +310,31 @@ CREATE TABLE activity_log (
 );
 ```
 
-### **13. vendor_companies**
+### **13. dealership_merge_history**
+Track dealership merges for audit trail and potential undo operations.
+
+```sql
+CREATE TABLE dealership_merge_history (
+  id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+  source_dealership_id UUID NOT NULL, -- The dealership being merged (will be inactive)
+  target_dealership_id UUID REFERENCES dealerships(id) ON DELETE CASCADE, -- The primary dealership kept
+  merged_by_user_id UUID REFERENCES users(id),
+  merge_reason TEXT,
+  source_data JSONB, -- Store full dealership record before merge
+  merged_at TIMESTAMPTZ DEFAULT NOW(),
+
+  -- Merge metadata
+  products_transferred INTEGER DEFAULT 0,
+  changes_transferred INTEGER DEFAULT 0,
+  notes_merged BOOLEAN DEFAULT false,
+
+  INDEX idx_merge_source (source_dealership_id),
+  INDEX idx_merge_target (target_dealership_id),
+  INDEX idx_merge_date (merged_at DESC)
+);
+```
+
+### **14. vendor_companies**
 Track vendor/supplier information for admin management.
 
 ```sql
@@ -334,6 +381,38 @@ PUT    /api/dealerships/:id                - Update dealership (admin only)
 POST   /api/dealerships/:id/notes          - Add notes to dealership
 GET    /api/dealerships/nearby             - Search by ZIP + radius
   Query params: zipCode, radius, filters
+
+POST   /api/dealerships/check-duplicate    - Check if URL already exists
+  Body: { website: "millerhonda.com" }
+  Response: { exists: true, dealership: {...} } or { exists: false }
+
+GET    /api/dealerships/duplicates         - Find potential duplicates (admin only)
+  Response: Groups of dealerships with similar names/addresses/URLs
+```
+
+### **Dealership Merging** (Admin Only)
+
+```
+POST   /api/dealerships/merge              - Merge multiple dealerships into one
+  Body: {
+    targetDealershipId: "uuid",    // The dealership to keep
+    sourceDealershipIds: ["uuid"], // Dealerships to merge into target
+    mergeReason: "string",
+    preserveNotes: true,           // Combine notes from all dealerships
+    transferProducts: true,        // Transfer all product associations
+    transferChanges: true          // Transfer change history
+  }
+  Response: {
+    success: true,
+    targetDealership: {...},
+    mergedCount: 3,
+    productsTransferred: 15,
+    changesTransferred: 42
+  }
+
+GET    /api/dealerships/merge-history      - List merge history
+GET    /api/dealerships/merge-history/:id  - Get specific merge details
+POST   /api/dealerships/merge/:id/undo     - Undo a merge (if within 24 hours)
 ```
 
 ### **Products**
