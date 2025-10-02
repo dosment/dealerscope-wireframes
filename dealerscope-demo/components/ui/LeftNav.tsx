@@ -120,14 +120,11 @@ const LeftNav: React.FC<LeftNavProps> = ({
 
   return (
     <div className="w-64 min-h-full flex flex-col border-r border-primary bg-secondary">
-      {/* Logo and Branding */}
-      <div className="px-6 py-8 flex items-center space-x-4 border-b border-primary">
-        <div className="w-16 h-16 flex items-center justify-center rounded-xl bg-elevated p-2">
-          <img src="/Racoon.png" alt="DealerScope" className="w-full h-full object-contain" />
+      {/* Logo */}
+      <div className="px-6 py-8 flex items-center justify-center border-b border-primary">
+        <div className="w-32 h-32 flex items-center justify-center">
+          <img src="/raccoon250px.png" alt="DealerScope" className="w-full h-full object-contain" />
         </div>
-        <h1 className="brand-headline text-lg font-bold text-primary tracking-wider">
-          DEALERSCOPE
-        </h1>
       </div>
 
       {/* Navigation Items */}
