@@ -12,10 +12,10 @@ import { ArrowRight, CheckCircle } from 'lucide-react';
  */
 export default function HeroSection() {
   return (
-    <section className="relative bg-gradient-to-br from-primary via-secondary to-primary text-white overflow-hidden">
+    <section className="relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white overflow-hidden">
       {/* Background Pattern Overlay */}
       <div className="absolute inset-0 z-0">
-        <div className="absolute inset-0 bg-gradient-to-r from-primary/95 via-secondary/90 to-primary/95 z-10" />
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-800/90 to-slate-900/95 z-10" />
         <div className="absolute inset-0 opacity-5">
           <div className="absolute inset-0" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '40px 40px' }} />
         </div>

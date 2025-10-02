@@ -9,7 +9,7 @@ import { Check, Lock, Zap } from 'lucide-react';
  */
 export default function CTASection() {
   return (
-    <section id="get-started" className="py-20 bg-gradient-to-br from-primary via-secondary to-primary">
+    <section id="get-started" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
       <div className="max-w-5xl mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-12">

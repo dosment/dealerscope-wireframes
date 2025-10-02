@@ -15,7 +15,7 @@ export default function EarlyAccessSection() {
   ];
 
   return (
-    <section id="early-access" className="py-20 bg-gradient-to-br from-primary via-secondary to-primary text-white">
+    <section id="early-access" className="py-20 bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white">
       <div className="max-w-4xl mx-auto px-6 text-center">
         {/* Section Header */}
         <h2 className="font-brand text-3xl lg:text-5xl font-bold mb-6">
